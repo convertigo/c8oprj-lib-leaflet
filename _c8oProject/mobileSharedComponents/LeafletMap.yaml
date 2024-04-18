@@ -171,7 +171,7 @@ scriptContent:
 ↓layers [ngx.components.UICompVariable-1713371555815]: 
   comment: |
     'The maps will display layers coming for data sources. You can give the layer information here by using an array of objects such as :
-    ```
+    <code>
     	[
     		// layer #1
     		{
@@ -185,7 +185,7 @@ scriptContent:
     		// Layer #2
     		...
     	]
-    ```
+    </code>
     
     You can add as many layers you want.'
   value: '[{name: ''OpenStreetMap'', source: ''https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'', options: { maxZoom: 18, attribution: ''...'' }}]'

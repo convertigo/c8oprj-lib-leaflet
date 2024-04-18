@@ -81,7 +81,10 @@ You can add as many circles you want in the array.
 </tr>
 <tr>
 <td>layers</td><td>The maps will display layers coming for data sources. You can give the layer information here by using an array of objects such as :
+
+
 ```
+
 	[
 		// layer #1
 		{
@@ -95,7 +98,10 @@ You can add as many circles you want in the array.
 		// Layer #2
 		...
 	]
+
 ```
+
+
 
 You can add as many layers you want.</td>
 </tr>
