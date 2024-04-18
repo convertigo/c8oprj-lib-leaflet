@@ -1,0 +1,247 @@
+scriptContent: 
+  - xmlizable: 
+    - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+    - com.twinsoft.convertigo.beans.common.FormatedContent: 
+      →: |
+        '/*Begin_c8o_CompImport*/
+        /*End_c8o_CompImport*/
+        /*Begin_c8o_CompDeclaration*/
+        	public options: any = {
+        		zoom: 7,
+        		center: L.latLng(this.center.lat, this.center.lng)
+        	};
+        	public leafLayers: any = [];
+        	/*End_c8o_CompDeclaration*/
+        /*Begin_c8o_CompConstructor*/
+        		for (let layer of this.layers) {
+        			this.leafLayers.push(L.tileLayer(layer.source, layer.options));
+        		}
+        		for (let marker of this.markers) {
+        			let m = L.marker(L.latLng(marker.lat, marker.lng), marker.options);
+        			if (marker.tooltip) {
+        				m.bindTooltip(marker.tooltip);
+        			}
+        			if (marker.popup) {
+        				m.bindPopup(marker.popup).openPopup();
+        			}
+        			this.leafLayers.push(m);
+        		}
+        		for (let circle of this.circles) {
+        			this.leafLayers.push(L.circle(L.latLng(circle.lat, circle.lng), circle.radius));
+        		}
+        		
+        		for (let polygon of this.polygons) {
+        			this.leafLayers.push(L.polygon(polygon));
+        		}
+        		/*End_c8o_CompConstructor*/
+        /*Begin_c8o_CompInitialization*/
+        		/*End_c8o_CompInitialization*/
+        /*Begin_c8o_CompFinalization*/
+        		/*End_c8o_CompFinalization*/
+        /*Begin_c8o_CompChanges*/
+        		/*End_c8o_CompChanges*/
+        /*Begin_c8o_CompDoCheck*/
+        		/*End_c8o_CompDoCheck*/
+        /*Begin_c8o_CompAfterContentInit*/
+        		/*End_c8o_CompAfterContentInit*/
+        /*Begin_c8o_CompAfterContentChecked*/
+        		/*End_c8o_CompAfterContentChecked*/
+        /*Begin_c8o_CompAfterViewInit*/
+        		/*End_c8o_CompAfterViewInit*/
+        /*Begin_c8o_CompAfterViewChecked*/
+        		/*End_c8o_CompAfterViewChecked*/
+        /*Begin_c8o_CompFunction*/
+        	onMapReady(map: L.Map) {
+        		setTimeout(() => {
+        			map.invalidateSize();
+        		}, 200);
+        	}
+        	/*End_c8o_CompFunction*/
+        '
+↓SharedComponent_Event [ngx.components.UISharedComponentEvent-1713370796992]: 
+  ↓InstallLeaflet [ngx.components.UICustomAction-1713370819120]: 
+    build_styles: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: ./node_modules/leaflet/dist/leaflet.css
+    module_ng_imports: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: LeafletModule
+    module_ts_imports: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: LeafletModule
+              - java.lang.String: 
+                - ↑value: '@asymmetrik/ngx-leaflet'
+    package_dependencies: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: leaflet
+              - java.lang.String: 
+                - ↑value: 1.9.4
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: '@asymmetrik/ngx-leaflet'
+              - java.lang.String: 
+                - ↑value: 17.0.0
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: '@types/leaflet'
+              - java.lang.String: 
+                - ↑value: 1.9.11
+    page_ts_imports: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: '* as L'
+              - java.lang.String: 
+                - ↑value: leaflet
+↓Div [ngx.components.UIDynamicElement-1713371234456]: 
+  beanData: '{"ionBean":"DivTag"}'
+  tagName: div
+  ↓Attr [ngx.components.UIAttribute-1713371274745]: 
+    attrName: 
+    attrValue: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+        - MobileSmartSourceType: plain:leaflet
+  ↓_leafletOptions_ [ngx.components.UIAttribute-1713371300601]: 
+    attrName: '[leafletOptions]'
+    attrValue: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+        - MobileSmartSourceType: script:this?.options
+  ↓Style [ngx.components.UIStyle-1713371339052]: 
+    styleContent: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+        - com.twinsoft.convertigo.beans.common.FormatedContent: 
+          →: |
+            '	height: 100%;
+            '
+  ↓_leafletOptions_1 [ngx.components.UIAttribute-1713373442313]: 
+    attrName: '[leafletLayers]'
+    attrValue: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+        - MobileSmartSourceType: script:this.leafLayers
+  ↓_leafletOptions_2 [ngx.components.UIAttribute-1713374399858]: 
+    attrName: (leafletMapReady)
+    attrValue: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+        - MobileSmartSourceType: script:onMapReady($event)
+↓center [ngx.components.UICompVariable-1713371397632]: 
+  comment: |
+    'The map will be centered on this coordinates described by this object
+    ```
+    { lat: 46.879966, lng: -121.726909}
+    ```
+    '
+  value: '{ lat: 46.879966, lng: -121.726909}'
+↓layers [ngx.components.UICompVariable-1713371555815]: 
+  comment: |
+    'The maps will display layers coming for data sources. You can give the layer information here by using an array of objects such as :
+    ```
+    [
+    	// layer #1
+    	{
+    		name: ''OpenStreetMap'',											// Name of the layer source
+    		source: ''https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'',	// Layer url pattern (here To feed the layer from Open 																											// Street Maps)
+    		options: {														// Layer options
+    			maxZoom: 18,
+    			attribution: ''...'' 
+    		}
+    	},
+    	// Layer #2
+    	...
+    ]
+    ```
+    
+    You can add as many layers you want.'
+  value: '[{name: ''OpenStreetMap'', source: ''https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'', options: { maxZoom: 18, attribution: ''...'' }}]'
+↓markers [ngx.components.UICompVariable-1713374630305]: 
+  comment: |
+    'Add Markers on the maps using an array of Objects :
+    ```
+    [
+    	// Marker #1
+    	{
+    		lat: 46.879966,			// lat of marker
+    		lng: -121.726909,		// lng of Marker
+    		options: {
+    			title: ''here''		// All the marker options you can find at https://leafletjs.com/reference.html#marker
+    		},
+    		tooltip: ''I am Here'',	// The tooltip on the marker
+    		popup: ''I am Here''		// a Popup displayed over the marker
+    	},
+    	// Marker #2
+    	...
+    ]
+    ```
+    
+    '
+  value: '[{ lat: 46.879966, lng: -121.726909, options: {title: ''here''}, tooltip: ''I am Here'', popup: ''I am Here''}]'
+↓circles [ngx.components.UICompVariable-1713375760411]: 
+  comment: |
+    'Add Circles on the map using an array of objects :
+    ```
+    [
+    	// Circle #1
+    	{
+    		lat: 46.879966,		// lat of the circle center
+    		lng: -121.726909,	// lng of the circle center
+    		radius: 5000			// Circle radius
+    	},
+    	// Circle #2
+    	...
+    ]
+    ```
+    You can add as many circles you want in the array.
+    '
+  value: '[{lat: 46.879966, lng: -121.726909,  radius: 5000}]'
+↓polygons [ngx.components.UICompVariable-1713434276105]: 
+  comment: |
+    'Add polygons to the maps using an Array of objects :
+    ```
+    [
+    	// Polygon #1
+    	[
+    		[ 46.8, -121.85 ],		// Latlng segment #1
+    		[ 46.92, -121.92 ],		// Latlng segment #2
+    		[ 46.87, -121.8 ]		// Latlng segment #3
+    	],
+    	// Polygon #2
+    	...
+    ]
+    '
+  value: '[[[ 46.8, -121.85 ], [ 46.92, -121.92 ], [ 46.87, -121.8 ]]]'

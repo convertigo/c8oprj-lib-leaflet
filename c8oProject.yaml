@@ -1,7 +1,10 @@
 ↑convertigo: 8.0.0.m006
 ↓lib_Leaflet [core.Project]: 
-  comment: Convertigo NGX builder Project
+  comment: |
+    This is the Leaflet Interactive maps for OpenStreatMap for Convertigo
+    
   corsOrigin: =Origin
+  version: 1.0
   ↓void [connectors.SqlConnector]: 🗏 connectors/void.yaml
   ↓Project_reference [references.ProjectSchemaReference]: 
     comment: ngx builder template

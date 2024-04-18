@@ -69,6 +69,8 @@ title: First page
   beanData: '{"ionBean":"Content"}'
   comment: Page content
   tagName: ion-content
+  ↓UseSharedComponent [ngx.components.UIUseShared-1713370844586]: 
+    sharedcomponent: lib_Leaflet.Application.NgxApp.LeafletMap
 ↓Footer [ngx.components.UIDynamicElement-1491634242460]: 
   beanData: '{"ionBean":"Footer"}'
   comment: Page footer
