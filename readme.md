@@ -49,6 +49,8 @@ Describes the mobile application global properties
 
 #### LeafletMap
 
+The Leaflet Shared Component. Use this component to add OpenStreetMaps maps to you applications.
+
 **variables**
 
 <table>
@@ -57,9 +59,15 @@ Describes the mobile application global properties
 </tr>
 <tr>
 <td>center</td><td>The map will be centered on this coordinates described by this object
+
+
 ```
+
 { lat: 46.879966, lng: -121.726909}
+
 ```
+
+
 </td>
 </tr>
 <tr>

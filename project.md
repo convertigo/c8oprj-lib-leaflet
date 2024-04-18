@@ -40,7 +40,7 @@ My First Page as root page
 
 ### ![](https://github.com/convertigo/convertigo/blob/develop/engine/src/com/twinsoft/convertigo/beans/ngx/components/images/uisharedcomponent_16x16.png?raw=true "UISharedRegularComponent") LeafletMap
 
-
+The Leaflet Shared Component. Use this component to add OpenStreetMaps maps to you applications.
 
 <span style="color:DarkGoldenRod">Variables</span>
 
@@ -59,9 +59,15 @@ comment
 </td>
 <td>
 The map will be centered on this coordinates described by this object
+
+
 ```
+
 { lat: 46.879966, lng: -121.726909}
+
 ```
+
+
 
 </td>
 </tr>

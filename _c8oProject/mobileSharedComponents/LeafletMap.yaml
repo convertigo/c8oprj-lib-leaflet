@@ -1,3 +1,4 @@
+comment: The Leaflet Shared Component. Use this component to add OpenStreetMaps maps to you applications.
 scriptContent: 
   - xmlizable: 
     - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
@@ -163,9 +164,9 @@ scriptContent:
 ↓center [ngx.components.UICompVariable-1713371397632]: 
   comment: |
     'The map will be centered on this coordinates described by this object
-    ```
+    <code>
     { lat: 46.879966, lng: -121.726909}
-    ```
+    </code>
     '
   value: '{ lat: 46.879966, lng: -121.726909}'
 ↓layers [ngx.components.UICompVariable-1713371555815]: 
