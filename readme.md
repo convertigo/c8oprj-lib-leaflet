@@ -28,13 +28,13 @@ For more technical informations : [documentation](./project.md)
      <tr><td>To contribute</td><td>
 
      ```
-     lib_Leaflet=/Users/olivierpicciotto/runtime-Forms/lib_Leaflet/.git:branch=master
+     lib_Leaflet=https://github.com/convertigo/c8oprj-lib-leaflet.git:branch=master
      ```
      </td></tr>
      <tr><td>To simply use</td><td>
 
      ```
-     lib_Leaflet=/Users/olivierpicciotto/runtime-Forms/lib_Leaflet//archive/master.zip
+     lib_Leaflet=https://github.com/convertigo/c8oprj-lib-leaflet/archive/master.zip
      ```
      </td></tr>
     </table>
@@ -82,19 +82,19 @@ You can add as many circles you want in the array.
 <tr>
 <td>layers</td><td>The maps will display layers coming for data sources. You can give the layer information here by using an array of objects such as :
 ```
-[
-	// layer #1
-	{
-		name: 'OpenStreetMap',											// Name of the layer source
-		source: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',	// Layer url pattern (here To feed the layer from Open 																											// Street Maps)
-		options: {														// Layer options
-			maxZoom: 18,
-			attribution: '...' 
-		}
-	},
-	// Layer #2
-	...
-]
+	[
+		// layer #1
+		{
+			name: 'OpenStreetMap',											// Name of the layer source
+			source: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',	// Layer url pattern (here To feed the layer from Open 																											// Street Maps)
+			options: {														// Layer options
+				maxZoom: 18,
+				attribution: '...' 
+			}
+		},
+		// Layer #2
+		...
+	]
 ```
 
 You can add as many layers you want.</td>

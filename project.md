@@ -94,19 +94,19 @@ You can add as many circles you want in the array.
 <td>
 The maps will display layers coming for data sources. You can give the layer information here by using an array of objects such as :
 ```
-[
-	// layer #1
-	{
-		name: 'OpenStreetMap',											// Name of the layer source
-		source: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',	// Layer url pattern (here To feed the layer from Open 																											// Street Maps)
-		options: {														// Layer options
-			maxZoom: 18,
-			attribution: '...' 
-		}
-	},
-	// Layer #2
-	...
-]
+	[
+		// layer #1
+		{
+			name: 'OpenStreetMap',											// Name of the layer source
+			source: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',	// Layer url pattern (here To feed the layer from Open 																											// Street Maps)
+			options: {														// Layer options
+				maxZoom: 18,
+				attribution: '...' 
+			}
+		},
+		// Layer #2
+		...
+	]
 ```
 
 You can add as many layers you want.
