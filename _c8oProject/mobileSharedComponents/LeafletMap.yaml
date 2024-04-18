@@ -12,6 +12,7 @@ scriptContent:
         		center: L.latLng(this.center.lat, this.center.lng)
         	};
         	public leafLayers: any = [];
+        	public map: L.Map;
         	/*End_c8o_CompDeclaration*/
         /*Begin_c8o_CompConstructor*/
         		for (let layer of this.layers) {
@@ -56,6 +57,7 @@ scriptContent:
         		/*End_c8o_CompAfterViewChecked*/
         /*Begin_c8o_CompFunction*/
         	onMapReady(map: L.Map) {
+        		this.map = map;
         		setTimeout(() => {
         			map.invalidateSize();
         		}, 200);
