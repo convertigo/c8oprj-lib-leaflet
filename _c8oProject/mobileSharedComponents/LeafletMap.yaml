@@ -40,6 +40,11 @@ scriptContent:
         		for (let polygon of this.polygons) {
         			this.leafLayers.push(L.polygon(polygon));
         		}
+        		
+        		this.options = {
+        			zoom: this.zoom,
+        			center: L.latLng(this.center.lat, this.center.lng)
+        		};
         		/*End_c8o_CompInitialization*/
         /*Begin_c8o_CompFinalization*/
         		/*End_c8o_CompFinalization*/
@@ -252,3 +257,6 @@ scriptContent:
     </code>
     '
   value: '[[[ 46.8, -121.85 ], [ 46.92, -121.92 ], [ 46.87, -121.8 ]]]'
+↓zoom [ngx.components.UICompVariable-1713452238832]: 
+  comment: Zoom factor
+  value: 12

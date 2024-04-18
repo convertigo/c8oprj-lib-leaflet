@@ -168,6 +168,9 @@ You can add as many layers you want.</td>
 
 </td>
 </tr>
+<tr>
+<td>zoom</td><td>Zoom factor</td>
+</tr>
 </table>
 
 
