@@ -23,7 +23,10 @@ scriptContent:
         				m.bindTooltip(marker.tooltip);
         			}
         			if (marker.popup) {
-        				m.bindPopup(marker.popup).openPopup();
+        				m.bindPopup(marker.popup)
+        				setTimeout(() => {
+        					m.openPopup();
+        				}, 200)
         			}
         			this.leafLayers.push(m);
         		}
