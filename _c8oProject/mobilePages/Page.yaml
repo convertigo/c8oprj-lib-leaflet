@@ -71,6 +71,107 @@ title: First page
   tagName: ion-content
   ↓UseSharedComponent [ngx.components.UIUseShared-1713370844586]: 
     sharedcomponent: lib_Leaflet.Application.NgxApp.LeafletMap
+    ↓center [ngx.components.UIUseVariable-1713450481458]: 
+      comment: |
+        'The map will be centered on this coordinates described by this object
+        <code>
+        { lat: 46.879966, lng: -121.726909}
+        </code>
+        '
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: 'script:{ lat: 46.879966, lng: -121.726909}'
+    ↓layers [ngx.components.UIUseVariable-1713450481460]: 
+      comment: |
+        'The maps will display layers coming for data sources. You can give the layer information here by using an array of objects such as :
+        <code>
+        [
+        	// layer #1
+        	{
+        		name: ''OpenStreetMap'',											// Name of the layer source
+        		source: ''https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'',	// Layer url pattern (here To feed the layer from Open 																											// Street Maps)
+        		options: {														// Layer options
+        			maxZoom: 18,
+        			attribution: ''...'' 
+        		}
+        	},
+        	// Layer #2
+        	...
+        ]
+        </code>
+        
+        You can add as many layers you want.'
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: 'script:[{name: ''OpenStreetMap'', source: ''https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'', options: { maxZoom: 18, attribution: ''...'' }}]'
+    ↓markers [ngx.components.UIUseVariable-1713450481462]: 
+      comment: |
+        'Add Markers on the maps using an array of Objects :
+        <code>
+        [
+        	// Marker #1
+        	{
+        		lat: 46.879966,			// lat of marker
+        		lng: -121.726909,		// lng of Marker
+        		options: {
+        			title: ''here''		// All the marker options you can find at https://leafletjs.com/reference.html#marker
+        		},
+        		tooltip: ''I am Here'',	// The tooltip on the marker
+        		popup: ''I am Here''		// a Popup displayed over the marker
+        	},
+        	// Marker #2
+        	...
+        ]
+        </code>
+        
+        '
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: 'script:[{ lat: 46.879966, lng: -121.726909, options: {title: ''here''}, tooltip: ''I am Here'', popup: ''I am Here''}]'
+    ↓circles [ngx.components.UIUseVariable-1713450818379]: 
+      comment: |
+        'Add Circles on the map using an array of objects :
+        <code>
+        [
+        	// Circle #1
+        	{
+        		lat: 46.879966,		// lat of the circle center
+        		lng: -121.726909,	// lng of the circle center
+        		radius: 5000			// Circle radius
+        	},
+        	// Circle #2
+        	...
+        ]
+        </code>
+        You can add as many circles you want in the array.
+        '
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: script:[]
+    ↓polygons [ngx.components.UIUseVariable-1713450818381]: 
+      comment: |
+        'Add polygons to the maps using an Array of objects :
+        <code>
+        [
+        	// Polygon #1
+        	[
+        		[ 46.8, -121.85 ],		// Latlng segment #1
+        		[ 46.92, -121.92 ],		// Latlng segment #2
+        		[ 46.87, -121.8 ]		// Latlng segment #3
+        	],
+        	// Polygon #2
+        	...
+        ]
+        </code>
+        '
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: script:[[[ 46.8, -121.85 ], [ 46.92, -121.92 ], [ 46.87, -121.8 ]]]
 ↓Footer [ngx.components.UIDynamicElement-1491634242460]: 
   beanData: '{"ionBean":"Footer"}'
   comment: Page footer

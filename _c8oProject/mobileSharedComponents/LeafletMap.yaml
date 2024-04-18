@@ -15,6 +15,8 @@ scriptContent:
         	public map: L.Map;
         	/*End_c8o_CompDeclaration*/
         /*Begin_c8o_CompConstructor*/
+        		/*End_c8o_CompConstructor*/
+        /*Begin_c8o_CompInitialization*/
         		for (let layer of this.layers) {
         			this.leafLayers.push(L.tileLayer(layer.source, layer.options));
         		}
@@ -38,8 +40,6 @@ scriptContent:
         		for (let polygon of this.polygons) {
         			this.leafLayers.push(L.polygon(polygon));
         		}
-        		/*End_c8o_CompConstructor*/
-        /*Begin_c8o_CompInitialization*/
         		/*End_c8o_CompInitialization*/
         /*Begin_c8o_CompFinalization*/
         		/*End_c8o_CompFinalization*/
