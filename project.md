@@ -71,7 +71,10 @@ The map will be centered on this coordinates described by this object
 </td>
 <td>
 Add Circles on the map using an array of objects :
+
+
 ```
+
 [
 	// Circle #1
 	{
@@ -82,7 +85,10 @@ Add Circles on the map using an array of objects :
 	// Circle #2
 	...
 ]
+
 ```
+
+
 You can add as many circles you want in the array.
 
 </td>
@@ -97,19 +103,19 @@ The maps will display layers coming for data sources. You can give the layer inf
 
 ```
 
-	[
-		// layer #1
-		{
-			name: 'OpenStreetMap',											// Name of the layer source
-			source: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',	// Layer url pattern (here To feed the layer from Open 																											// Street Maps)
-			options: {														// Layer options
-				maxZoom: 18,
-				attribution: '...' 
-			}
-		},
-		// Layer #2
-		...
-	]
+[
+	// layer #1
+	{
+		name: 'OpenStreetMap',											// Name of the layer source
+		source: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',	// Layer url pattern (here To feed the layer from Open 																											// Street Maps)
+		options: {														// Layer options
+			maxZoom: 18,
+			attribution: '...' 
+		}
+	},
+	// Layer #2
+	...
+]
 
 ```
 
@@ -124,7 +130,10 @@ You can add as many layers you want.
 </td>
 <td>
 Add Markers on the maps using an array of Objects :
+
+
 ```
+
 [
 	// Marker #1
 	{
@@ -139,7 +148,10 @@ Add Markers on the maps using an array of Objects :
 	// Marker #2
 	...
 ]
+
 ```
+
+
 
 
 </td>
@@ -150,7 +162,10 @@ Add Markers on the maps using an array of Objects :
 </td>
 <td>
 Add polygons to the maps using an Array of objects :
+
+
 ```
+
 [
 	// Polygon #1
 	[
@@ -161,6 +176,10 @@ Add polygons to the maps using an Array of objects :
 	// Polygon #2
 	...
 ]
+
+```
+
+
 
 </td>
 </tr>

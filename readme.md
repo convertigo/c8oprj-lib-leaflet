@@ -64,7 +64,10 @@ Describes the mobile application global properties
 </tr>
 <tr>
 <td>circles</td><td>Add Circles on the map using an array of objects :
+
+
 ```
+
 [
 	// Circle #1
 	{
@@ -75,7 +78,10 @@ Describes the mobile application global properties
 	// Circle #2
 	...
 ]
+
 ```
+
+
 You can add as many circles you want in the array.
 </td>
 </tr>
@@ -85,19 +91,19 @@ You can add as many circles you want in the array.
 
 ```
 
-	[
-		// layer #1
-		{
-			name: 'OpenStreetMap',											// Name of the layer source
-			source: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',	// Layer url pattern (here To feed the layer from Open 																											// Street Maps)
-			options: {														// Layer options
-				maxZoom: 18,
-				attribution: '...' 
-			}
-		},
-		// Layer #2
-		...
-	]
+[
+	// layer #1
+	{
+		name: 'OpenStreetMap',											// Name of the layer source
+		source: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',	// Layer url pattern (here To feed the layer from Open 																											// Street Maps)
+		options: {														// Layer options
+			maxZoom: 18,
+			attribution: '...' 
+		}
+	},
+	// Layer #2
+	...
+]
 
 ```
 
@@ -107,7 +113,10 @@ You can add as many layers you want.</td>
 </tr>
 <tr>
 <td>markers</td><td>Add Markers on the maps using an array of Objects :
+
+
 ```
+
 [
 	// Marker #1
 	{
@@ -122,13 +131,19 @@ You can add as many layers you want.</td>
 	// Marker #2
 	...
 ]
+
 ```
+
+
 
 </td>
 </tr>
 <tr>
 <td>polygons</td><td>Add polygons to the maps using an Array of objects :
+
+
 ```
+
 [
 	// Polygon #1
 	[
@@ -139,6 +154,10 @@ You can add as many layers you want.</td>
 	// Polygon #2
 	...
 ]
+
+```
+
+
 </td>
 </tr>
 </table>

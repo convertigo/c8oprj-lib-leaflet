@@ -172,19 +172,19 @@ scriptContent:
   comment: |
     'The maps will display layers coming for data sources. You can give the layer information here by using an array of objects such as :
     <code>
-    	[
-    		// layer #1
-    		{
-    			name: ''OpenStreetMap'',											// Name of the layer source
-    			source: ''https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'',	// Layer url pattern (here To feed the layer from Open 																											// Street Maps)
-    			options: {														// Layer options
-    				maxZoom: 18,
-    				attribution: ''...'' 
-    			}
-    		},
-    		// Layer #2
-    		...
-    	]
+    [
+    	// layer #1
+    	{
+    		name: ''OpenStreetMap'',											// Name of the layer source
+    		source: ''https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'',	// Layer url pattern (here To feed the layer from Open 																											// Street Maps)
+    		options: {														// Layer options
+    			maxZoom: 18,
+    			attribution: ''...'' 
+    		}
+    	},
+    	// Layer #2
+    	...
+    ]
     </code>
     
     You can add as many layers you want.'
@@ -192,7 +192,7 @@ scriptContent:
 ↓markers [ngx.components.UICompVariable-1713374630305]: 
   comment: |
     'Add Markers on the maps using an array of Objects :
-    ```
+    <code>
     [
     	// Marker #1
     	{
@@ -207,14 +207,14 @@ scriptContent:
     	// Marker #2
     	...
     ]
-    ```
+    </code>
     
     '
   value: '[{ lat: 46.879966, lng: -121.726909, options: {title: ''here''}, tooltip: ''I am Here'', popup: ''I am Here''}]'
 ↓circles [ngx.components.UICompVariable-1713375760411]: 
   comment: |
     'Add Circles on the map using an array of objects :
-    ```
+    <code>
     [
     	// Circle #1
     	{
@@ -225,14 +225,14 @@ scriptContent:
     	// Circle #2
     	...
     ]
-    ```
+    </code>
     You can add as many circles you want in the array.
     '
   value: '[{lat: 46.879966, lng: -121.726909,  radius: 5000}]'
 ↓polygons [ngx.components.UICompVariable-1713434276105]: 
   comment: |
     'Add polygons to the maps using an Array of objects :
-    ```
+    <code>
     [
     	// Polygon #1
     	[
@@ -243,5 +243,6 @@ scriptContent:
     	// Polygon #2
     	...
     ]
+    </code>
     '
   value: '[[[ 46.8, -121.85 ], [ 46.92, -121.92 ], [ 46.87, -121.8 ]]]'
