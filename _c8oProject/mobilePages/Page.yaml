@@ -172,6 +172,12 @@ title: First page
         - xmlizable: 
           - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
           - MobileSmartSourceType: script:[[[ 46.8, -121.85 ], [ 46.92, -121.92 ], [ 46.87, -121.8 ]]]
+    ↓zoom [ngx.components.UIUseVariable-1713459028596]: 
+      comment: Zoom factor
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: script:15
 ↓Footer [ngx.components.UIDynamicElement-1491634242460]: 
   beanData: '{"ionBean":"Footer"}'
   comment: Page footer

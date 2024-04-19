@@ -5,6 +5,7 @@ scriptContent:
     - com.twinsoft.convertigo.beans.common.FormatedContent: 
       →: |
         '/*Begin_c8o_CompImport*/
+        import ''leaflet-defaulticon-compatibility'';
         /*End_c8o_CompImport*/
         /*Begin_c8o_CompDeclaration*/
         	public options: any = {
@@ -80,6 +81,11 @@ scriptContent:
             - com.twinsoft.convertigo.beans.common.XMLVector: 
               - java.lang.String: 
                 - ↑value: ./node_modules/leaflet/dist/leaflet.css
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: ./node_modules/leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css
     module_ng_imports: 
       - xmlizable: 
         - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
@@ -125,6 +131,13 @@ scriptContent:
                 - ↑value: '@types/leaflet'
               - java.lang.String: 
                 - ↑value: 1.9.11
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: leaflet-defaulticon-compatibility
+              - java.lang.String: 
+                - ↑value: 0.1.2
     page_ts_imports: 
       - xmlizable: 
         - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
