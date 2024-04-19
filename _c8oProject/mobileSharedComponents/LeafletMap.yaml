@@ -21,7 +21,9 @@ scriptContent:
         		
         		this.options = {
         				zoom: this.zoom,
-        				center: L.latLng(this.center.lat, this.center.lng)
+        				center: this.center?
+        					L.latLng(this.center.lat, this.center.lng) : 
+        					{ lat: 46.879966, lng: -121.726909}
         		};
         		
         		
@@ -35,9 +37,12 @@ scriptContent:
         			}
         			if (marker.popup) {
         				m.bindPopup(marker.popup)
+        				/*
         				setTimeout(() => {
         					m.openPopup();
         				}, 200)
+        				*/  
+        
         			}
         			this.leafLayers.push(m);
         		}
@@ -276,3 +281,6 @@ scriptContent:
 ↓zoom [ngx.components.UICompVariable-1713452238832]: 
   comment: Zoom factor
   value: 12
+↓autoCenter [ngx.components.UICompVariable-1713535572596]: 
+  comment: If true the map will automatically be centered on current users GPS position
+  value: true

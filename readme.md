@@ -58,6 +58,9 @@ The Leaflet Shared Component. Use this component to add OpenStreetMaps maps to y
 <th>name</th><th>comment</th>
 </tr>
 <tr>
+<td>autoCenter</td><td>If true the map will automatically be centered on current users GPS position</td>
+</tr>
+<tr>
 <td>center</td><td>The map will be centered on this coordinates described by this object
 
 
