@@ -73,6 +73,14 @@ scriptContent:
         	onMapReady(map: L.Map) {
         		this.map = map;
         		setTimeout(() => {
+        			if (this.autoCenter) {
+        				window.navigator.geolocation.getCurrentPosition((position) => {
+        					this.options.center = L.latLng(position.coords.latitude, position.coords.longitude);
+        					map.setView(this.options.center, this.zoom);
+        				}, (error) => {
+        					console.error(''Error getting location'', error);
+        				});
+        		    }
         			map.invalidateSize();
         		}, 200);
         	}
@@ -94,6 +102,19 @@ scriptContent:
             - com.twinsoft.convertigo.beans.common.XMLVector: 
               - java.lang.String: 
                 - ↑value: ./node_modules/leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css
+    cordova_plugins: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+        - com.twinsoft.convertigo.beans.common.XMLVector: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: cordova-plugin-geolocation
+              - java.lang.String: 
+                - ↑value: 5.0.0
+              - java.lang.String: 
+                - ↑value: '{}'
     module_ng_imports: 
       - xmlizable: 
         - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
