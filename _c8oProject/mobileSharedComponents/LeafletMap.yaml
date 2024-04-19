@@ -18,6 +18,13 @@ scriptContent:
         /*Begin_c8o_CompConstructor*/
         		/*End_c8o_CompConstructor*/
         /*Begin_c8o_CompInitialization*/
+        		
+        		this.options = {
+        				zoom: this.zoom,
+        				center: L.latLng(this.center.lat, this.center.lng)
+        		};
+        		
+        		
         		for (let layer of this.layers) {
         			this.leafLayers.push(L.tileLayer(layer.source, layer.options));
         		}
@@ -42,10 +49,6 @@ scriptContent:
         			this.leafLayers.push(L.polygon(polygon));
         		}
         		
-        		this.options = {
-        			zoom: this.zoom,
-        			center: L.latLng(this.center.lat, this.center.lng)
-        		};
         		/*End_c8o_CompInitialization*/
         /*Begin_c8o_CompFinalization*/
         		/*End_c8o_CompFinalization*/
@@ -163,7 +166,7 @@ scriptContent:
     attrValue: 
       - xmlizable: 
         - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-        - MobileSmartSourceType: script:this?.options
+        - MobileSmartSourceType: script:this.options
   ↓Style [ngx.components.UIStyle-1713371339052]: 
     styleContent: 
       - xmlizable: 
