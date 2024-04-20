@@ -77,11 +77,13 @@ scriptContent:
         				window.navigator.geolocation.getCurrentPosition((position) => {
         					this.options.center = L.latLng(position.coords.latitude, position.coords.longitude);
         					map.setView(this.options.center, this.zoom);
+        					this.c8o.log.warn("centered on current position", this.options.center);
         				}, (error) => {
-        					console.error(''Error getting location'', error);
+        					this.c8o.log.error(''Error getting location''+ error.message);
         				});
         		    }
         			map.invalidateSize();
+        			this.MapReady.emit(map);
         		}, 200);
         	}
         	/*End_c8o_CompFunction*/
@@ -305,3 +307,9 @@ scriptContent:
 ↓autoCenter [ngx.components.UICompVariable-1713535572596]: 
   comment: If true the map will automatically be centered on current users GPS position
   value: true
+↓MapReady [ngx.components.UICompEvent-1713595438779]: 
+  attrName: MapReady
+  comment: |
+    This event will be emitted when the map is ready and displayed. The (map) will hold a reference to the underlying leaflet map object so you can use the leaflet Api to interact with it.
+    
+    

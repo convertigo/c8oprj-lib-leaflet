@@ -176,5 +176,18 @@ You can add as many layers you want.</td>
 </tr>
 </table>
 
+**events**
+
+<table>
+<tr>
+<th>name</th><th>comment</th>
+</tr>
+<tr>
+<td>MapReady</td><td>This event will be emitted when the map is ready and displayed. The (map) will hold a reference to the underlying leaflet map object so you can use the leaflet Api to interact with it.
+
+</td>
+</tr>
+</table>
+
 
 

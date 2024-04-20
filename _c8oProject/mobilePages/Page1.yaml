@@ -1,0 +1,20 @@
+↑isRoot: true
+segment: path-to-page1
+title: Title for Page1
+↓Content [ngx.components.UIDynamicElement-1713597807024]: 
+  beanData: '{"ionBean":"Content"}'
+  tagName: ion-content
+  ↓Button [ngx.components.UIDynamicElement-1713597816427]: 
+    beanData: '{"ionBean":"Button"}'
+    tagName: ion-button
+    ↓Label [ngx.components.UIDynamicElement-1713597816422]: 
+      beanData: '{"ionBean":"Label"}'
+      tagName: ion-label
+      ↓Text [ngx.components.UIText-1713597816424]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: plain:Show map
+    ↓Event [ngx.components.UIControlEvent-1713597816426]: 
+      ↓PushPage [ngx.components.UIDynamicAction-1713597826932]: 
+        beanData: '{"ionBean":"PushPageAction","page":"plain:lib_Leaflet.Application.NgxApp.Page"}'
