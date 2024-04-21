@@ -78,8 +78,13 @@ scriptContent:
         					this.options.center = L.latLng(position.coords.latitude, position.coords.longitude);
         					map.setView(this.options.center, this.zoom);
         					this.c8o.log.warn("centered on current position", this.options.center);
+        					this.GpsCentered.emit(this.options.center);
         				}, (error) => {
         					this.c8o.log.error(''Error getting location''+ error.message);
+        				}, {
+        					enableHighAccuracy: true,
+        					timeout: 5000,
+        					maximumAge: 300
         				});
         		    }
         			map.invalidateSize();
@@ -309,6 +314,12 @@ scriptContent:
   value: true
 ↓MapReady [ngx.components.UICompEvent-1713595438779]: 
   attrName: MapReady
+  comment: |
+    This event will be emitted when the map is ready and displayed. The (map) will hold a reference to the underlying leaflet map object so you can use the leaflet Api to interact with it.
+    
+    
+↓GpsCentered [ngx.components.UICompEvent-1713635956590]: 
+  attrName: GpsCentered
   comment: |
     This event will be emitted when the map is ready and displayed. The (map) will hold a reference to the underlying leaflet map object so you can use the leaflet Api to interact with it.
     

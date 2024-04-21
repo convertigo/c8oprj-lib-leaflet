@@ -233,6 +233,16 @@ comment
 </tr>
 <tr>
 <td>
+<img src="https://github.com/convertigo/convertigo/blob/develop/engine/src/com/twinsoft/convertigo/beans/ngx/components/images/uicompevent_16x16.png?raw=true "  alt="UICompEvent" >&nbsp;GpsCentered
+</td>
+<td>
+This event will be emitted when the map is ready and displayed. The (map) will hold a reference to the underlying leaflet map object so you can use the leaflet Api to interact with it.
+
+
+</td>
+</tr>
+<tr>
+<td>
 <img src="https://github.com/convertigo/convertigo/blob/develop/engine/src/com/twinsoft/convertigo/beans/ngx/components/images/uicompevent_16x16.png?raw=true "  alt="UICompEvent" >&nbsp;MapReady
 </td>
 <td>

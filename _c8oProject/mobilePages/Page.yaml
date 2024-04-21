@@ -187,6 +187,21 @@ title: First page
       eventName: MapReady
       ↓Toast [ngx.components.UIDynamicAction-1713595732583]: 
         beanData: '{"ionBean":"ToastAction","message":"plain:Map is ready"}'
+    ↓autoCenter [ngx.components.UIUseVariable-1713636088381]: 
+      comment: If true the map will automatically be centered on current users GPS position
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: script:true
+    ↓Event1 [ngx.components.UIControlEvent-1713636104049]: 
+      attrName: (GpsCentered)
+      comment: |
+        This event will be emitted when the map is ready and displayed. The (map) will hold a reference to the underlying leaflet map object so you can use the leaflet Api to interact with it.
+        
+        
+      eventName: GpsCentered
+      ↓Toast [ngx.components.UIDynamicAction-1713636113025]: 
+        beanData: '{"ionBean":"ToastAction","message":"script:''Gps position is aquired : '' + ''lat:'' + out.lat + '' lng:'' + out.lng"}'
 ↓Footer [ngx.components.UIDynamicElement-1491634242460]: 
   beanData: '{"ionBean":"Footer"}'
   comment: Page footer
