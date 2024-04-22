@@ -236,7 +236,20 @@ comment
 <img src="https://github.com/convertigo/convertigo/blob/develop/engine/src/com/twinsoft/convertigo/beans/ngx/components/images/uicompevent_16x16.png?raw=true "  alt="UICompEvent" >&nbsp;GpsCentered
 </td>
 <td>
-This event will be emitted when the map is ready and displayed. The (map) will hold a reference to the underlying leaflet map object so you can use the leaflet Api to interact with it.
+This event will be emitted when the GPS has be acquired and the map centered on the current GPS position. The parent.out will hold a 
+
+
+```
+
+{
+	lat: nnn,
+	lng: mmm
+}
+
+```
+
+
+Object holding the acquired GPS position.
 
 
 </td>

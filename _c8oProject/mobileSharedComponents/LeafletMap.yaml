@@ -321,6 +321,13 @@ scriptContent:
 ↓GpsCentered [ngx.components.UICompEvent-1713635956590]: 
   attrName: GpsCentered
   comment: |
-    This event will be emitted when the map is ready and displayed. The (map) will hold a reference to the underlying leaflet map object so you can use the leaflet Api to interact with it.
+    'This event will be emitted when the GPS has be acquired and the map centered on the current GPS position. The parent.out will hold a 
+    <code>
+    {
+    	lat: nnn,
+    	lng: mmm
+    }
+    </code>
+    Object holding the acquired GPS position.
     
-    
+    '

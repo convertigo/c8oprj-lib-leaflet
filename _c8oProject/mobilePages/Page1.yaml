@@ -5,7 +5,12 @@ title: Title for Page1
   beanData: '{"ionBean":"Content"}'
   tagName: ion-content
   ↓Button [ngx.components.UIDynamicElement-1713597816427]: 
-    beanData: '{"ionBean":"Button"}'
+    beanData: |
+      '{
+       "ionBean": "Button",
+       "ButtonFormType": "plain",
+       "Disabled": "plain"
+      }'
     tagName: ion-button
     ↓Label [ngx.components.UIDynamicElement-1713597816422]: 
       beanData: '{"ionBean":"Label"}'
