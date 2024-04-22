@@ -202,6 +202,12 @@ title: First page
       eventName: GpsCentered
       ↓Toast [ngx.components.UIDynamicAction-1713636113025]: 
         beanData: '{"ionBean":"ToastAction","message":"script:''Gps position is aquired : '' + ''lat:'' + out.lat + '' lng:'' + out.lng"}'
+    ↓geoCodeSearchAddress [ngx.components.UIUseVariable-1713799386128]: 
+      comment: If true the map will automatically be centered on current users GPS position
+      varValue: 
+        - xmlizable: 
+          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+          - MobileSmartSourceType: script:true
 ↓Footer [ngx.components.UIDynamicElement-1491634242460]: 
   beanData: '{"ionBean":"Footer"}'
   comment: Page footer

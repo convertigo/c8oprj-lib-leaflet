@@ -97,6 +97,9 @@ You can add as many circles you want in the array.
 </td>
 </tr>
 <tr>
+<td>geoCodeSearchAddress</td><td>If true the a search box will be displayed at the top of the map to enable users to search for addresses.</td>
+</tr>
+<tr>
 <td>layers</td><td>The maps will display layers coming for data sources. You can give the layer information here by using an array of objects such as :
 
 

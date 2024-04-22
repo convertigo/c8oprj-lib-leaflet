@@ -8,7 +8,7 @@
   ↓void [connectors.SqlConnector]: 🗏 connectors/void.yaml
   ↓Project_reference [references.ProjectSchemaReference]: 
     comment: ngx builder template
-    filepath: C:\Users\opic_000\git\c8oprj-mobilebuilder-tpl
+    filepath: /Users/olivierpicciotto/runtime-Forms/mobilebuilder_tpl_8_3_0_ngx
     projectName: mobilebuilder_tpl_8_3_0_ngx=https://github.com/convertigo/c8oprj-mobilebuilder-tpl/archive/mobilebuilder_tpl_8_3_0_ngx.zip
     urlpath: https://github.com/convertigo/c8oprj-mobilebuilder-tpl/archive/mobilebuilder_tpl_8_3_0_ngx.zip
   ↓Application [core.MobileApplication]: 
