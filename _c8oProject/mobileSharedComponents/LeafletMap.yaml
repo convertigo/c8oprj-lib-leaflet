@@ -25,40 +25,54 @@ scriptContent:
         					L.latLng(this.center.lat, this.center.lng) : 
         					{ lat: 46.879966, lng: -121.726909}
         		};
-        		
-        		
-        		for (let layer of this.layers) {
-        			this.leafLayers.push(L.tileLayer(layer.source, layer.options));
-        		}
-        		for (let marker of this.markers) {
-        			let m = L.marker(L.latLng(marker.lat, marker.lng), marker.options);
-        			if (marker.tooltip) {
-        				m.bindTooltip(marker.tooltip);
-        			}
-        			if (marker.popup) {
-        				m.bindPopup(marker.popup)
-        				/*
-        				setTimeout(() => {
-        					m.openPopup();
-        				}, 200)
-        				*/  
-        
-        			}
-        			this.leafLayers.push(m);
-        		}
-        		for (let circle of this.circles) {
-        			this.leafLayers.push(L.circle(L.latLng(circle.lat, circle.lng), circle.radius));
-        		}
-        		
-        		for (let polygon of this.polygons) {
-        			this.leafLayers.push(L.polygon(polygon));
-        		}
-        		
-        		
         		/*End_c8o_CompInitialization*/
         /*Begin_c8o_CompFinalization*/
         		/*End_c8o_CompFinalization*/
         /*Begin_c8o_CompChanges*/
+        		if(this.layers != null){
+        			for (let layer of this.layers) {
+        				this.leafLayers.push(L.tileLayer(layer.source, layer.options));
+        			}
+        		}
+        		if(this.markers != null){
+        			for (let marker of this.markers) {
+        				let m = L.marker(L.latLng(marker.lat, marker.lng), marker.options);
+        				if (marker.tooltip) {
+        					m.bindTooltip(marker.tooltip);
+        				}
+        				if (marker.popup) {
+        					m.bindPopup(marker.popup); 
+        				}
+        				this.leafLayers.push(m);
+        			}
+        		}
+        		if(this.circles != null){
+        			for (let circle of this.circles) {
+        				let c = L.circle(L.latLng(circle.lat, circle.lng), circle.radius);
+        				if (circle.tooltip) {
+        					c.bindTooltip(circle.tooltip);
+        				}
+        				if (circle.popup) {
+        					c.bindPopup(circle.popup);
+        
+        				}
+        				this.leafLayers.push(c);
+        			}
+        		}		
+        		if(this.polygons != null){
+        			for (let polygon of this.polygons) {
+        				let p = L.polygon(polygon.coord);
+        				if (polygon.tooltip) {
+        					p.bindTooltip(polygon.tooltip);
+        				}
+        				if (polygon.popup) {
+        					p.bindPopup(polygon.popup);
+        
+        				}
+        				this.leafLayers.push(p);
+        			}
+        		}
+        		
         		/*End_c8o_CompChanges*/
         /*Begin_c8o_CompDoCheck*/
         		/*End_c8o_CompDoCheck*/
@@ -99,7 +113,7 @@ scriptContent:
         				provider: provider,
         				style: ''bar'',
         				//autoClose: true,
-        				searchLabel: null,
+        				searchLabel: this.searchLabel,
         				showMarker: true,
         				showPopup: true,
         				autoComplete: true,
@@ -115,8 +129,23 @@ scriptContent:
         			
         			this.map.addControl(searchControl);
         		}
+        		if(this.disabled){
+        			this.disableInteractions();
+        		}
         		
         	}
+        	private disableInteractions(): void {
+        	    this.map.dragging.disable();
+        	    this.map.touchZoom.disable();
+        	    this.map.doubleClickZoom.disable();
+        	    this.map.scrollWheelZoom.disable();
+        	    this.map.boxZoom.disable();
+        	    this.map.keyboard.disable();
+        
+        	    if (this.map.tap){
+        			this.map.tap.disable();
+        		} 
+        	  }
         	/*End_c8o_CompFunction*/
         '
 ↓SharedComponent_Event [ngx.components.UISharedComponentEvent-1713370796992]: 
@@ -266,6 +295,15 @@ scriptContent:
         - com.twinsoft.convertigo.beans.common.FormatedContent: 
           →: |
             '	height: 100%;
+            	input{
+            		background-color: white !important;
+            	}
+            	.glass{
+            		background-color: white !important;
+            	}
+            	.leaflet-geosearch-bar input {
+            		background-color: white !important;
+            	}
             '
   ↓_leafletOptions_1 [ngx.components.UIAttribute-1713373442313]: 
     attrName: '[leafletLayers]'
@@ -279,6 +317,12 @@ scriptContent:
       - xmlizable: 
         - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
         - MobileSmartSourceType: script:onMapReady($event)
+  ↓Attr1 [ngx.components.UIAttribute-1734448811418]: 
+    attrName: '[style.min-height]'
+    attrValue: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+        - MobileSmartSourceType: source:{"filter":"Shared","project":"lib_Leaflet","input":"","model":{"data":[{"priority":1713370776918,"regular":true}],"path":"?.minHeight","prefix":"","suffix":"","custom":"","useCustom":false}}
 ↓center [ngx.components.UICompVariable-1713371397632]: 
   comment: |
     'The map will be centered on this coordinates described by this object
@@ -364,7 +408,7 @@ scriptContent:
     ]
     </code>
     '
-  value: '[[[ 46.8, -121.85 ], [ 46.92, -121.92 ], [ 46.87, -121.8 ]]]'
+  value: '[{coord: [[ 46.8, -121.85 ], [ 46.92, -121.92 ], [ 46.87, -121.8 ]]}]'
 ↓zoom [ngx.components.UICompVariable-1713452238832]: 
   comment: Zoom factor
   value: 12
@@ -393,3 +437,11 @@ scriptContent:
 ↓geoCodeSearchAddress [ngx.components.UICompVariable-1713798611726]: 
   comment: If true the a search box will be displayed at the top of the map to enable users to search for addresses.
   value: true
+↓minHeight [ngx.components.UICompVariable-1734448838932]: 
+  comment: If true the map will automatically be centered on current users GPS position
+  value: '''initial'''
+↓disabled [ngx.components.UICompVariable-1736443901659]: 
+  comment: If true the map will automatically be centered on current users GPS position
+  value: false
+↓searchLabel [ngx.components.UICompVariable-1736506138195]: 
+  value: '''Search'''

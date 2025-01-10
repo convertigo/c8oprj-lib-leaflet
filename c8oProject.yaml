@@ -4,7 +4,7 @@
     This is the Leaflet Interactive maps for OpenStreatMap for Convertigo
     
   corsOrigin: =Origin
-  version: 1.0
+  version: 1.0.0
   ↓void [connectors.SqlConnector]: 🗏 connectors/void.yaml
   ↓Project_reference [references.ProjectSchemaReference]: 
     comment: ngx builder template
