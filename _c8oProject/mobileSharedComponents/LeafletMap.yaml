@@ -202,6 +202,8 @@ scriptContent:
                 - ↑value: LeafletModule
               - java.lang.String: 
                 - ↑value: '@bluehalo/ngx-leaflet'
+              - java.lang.String: 
+                - ↑value: false
     package_dependencies: 
       - xmlizable: 
         - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
@@ -217,7 +219,7 @@ scriptContent:
             - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
             - com.twinsoft.convertigo.beans.common.XMLVector: 
               - java.lang.String: 
-                - ↑value: bluehalo/ngx-leaflet
+                - ↑value: '@bluehalo/ngx-leaflet'
               - java.lang.String: 
                 - ↑value: 19.0.0
           - xmlizable: 
