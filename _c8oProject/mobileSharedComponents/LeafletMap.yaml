@@ -199,7 +199,7 @@ scriptContent:
             - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
             - com.twinsoft.convertigo.beans.common.XMLVector: 
               - java.lang.String: 
-                - ↑value: LeafletModule
+                - ↑value: '{ LeafletModule }'
               - java.lang.String: 
                 - ↑value: '@asymmetrik/ngx-leaflet'
     package_dependencies: 
@@ -263,7 +263,7 @@ scriptContent:
             - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
             - com.twinsoft.convertigo.beans.common.XMLVector: 
               - java.lang.String: 
-                - ↑value: OpenStreetMapProvider
+                - ↑value: '{ OpenStreetMapProvider }'
               - java.lang.String: 
                 - ↑value: leaflet-geosearch
           - xmlizable: 
