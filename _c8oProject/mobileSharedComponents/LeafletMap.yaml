@@ -72,6 +72,9 @@ scriptContent:
         				this.leafLayers.push(p);
         			}
         		}
+        		if (changes.center && !changes.center.firstChange) {
+        	      this.map.setView(this.center, this.map.getZoom());
+        	    }
         		
         		/*End_c8o_CompChanges*/
         /*Begin_c8o_CompDoCheck*/

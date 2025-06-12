@@ -28,13 +28,13 @@ For more technical informations : [documentation](./project.md)
      <tr><td>To contribute</td><td>
 
      ```
-     lib_Leaflet=https://github.com/convertigo/c8oprj-lib-leaflet.git:branch=master
+     lib_Leaflet=https://github.com/convertigo/c8oprj-lib-leaflet.git:branch=8.4.0.0
      ```
      </td></tr>
      <tr><td>To simply use</td><td>
 
      ```
-     lib_Leaflet=https://github.com/convertigo/c8oprj-lib-leaflet/archive/master.zip
+     lib_Leaflet=https://github.com/convertigo/c8oprj-lib-leaflet/archive/8.4.0.0.zip
      ```
      </td></tr>
     </table>
@@ -97,6 +97,9 @@ You can add as many circles you want in the array.
 </td>
 </tr>
 <tr>
+<td>disabled</td><td>If true the map will automatically be centered on current users GPS position</td>
+</tr>
+<tr>
 <td>geoCodeSearchAddress</td><td>If true the a search box will be displayed at the top of the map to enable users to search for addresses.</td>
 </tr>
 <tr>
@@ -153,6 +156,9 @@ You can add as many layers you want.</td>
 </td>
 </tr>
 <tr>
+<td>minHeight</td><td>If true the map will automatically be centered on current users GPS position</td>
+</tr>
+<tr>
 <td>polygons</td><td>Add polygons to the maps using an Array of objects :
 
 
@@ -173,6 +179,9 @@ You can add as many layers you want.</td>
 
 
 </td>
+</tr>
+<tr>
+<td>searchLabel</td><td></td>
 </tr>
 <tr>
 <td>zoom</td><td>Zoom factor</td>
