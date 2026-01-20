@@ -28,13 +28,13 @@ For more technical informations : [documentation](./project.md)
      <tr><td>To contribute</td><td>
 
      ```
-     lib_Leaflet=https://github.com/convertigo/c8oprj-lib-leaflet.git:branch=8.4.0.0
+     lib_Leaflet=https://github.com/convertigo/c8oprj-lib-leaflet.git:branch=8.4.0.0_legacy
      ```
      </td></tr>
      <tr><td>To simply use</td><td>
 
      ```
-     lib_Leaflet=https://github.com/convertigo/c8oprj-lib-leaflet/archive/8.4.0.0.zip
+     lib_Leaflet=https://github.com/convertigo/c8oprj-lib-leaflet/archive/8.4.0.0_legacy.zip
      ```
      </td></tr>
     </table>
