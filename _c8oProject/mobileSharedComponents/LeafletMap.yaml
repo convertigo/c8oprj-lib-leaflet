@@ -145,8 +145,8 @@ scriptContent:
         	    this.map.boxZoom.disable();
         	    this.map.keyboard.disable();
         
-        	    if (this.map.tap){
-        			this.map.tap.disable();
+        	    if (this.map["tap"]){
+        			this.map["tap"].disable();
         		} 
         	  }
         	/*End_c8o_CompFunction*/
@@ -166,12 +166,12 @@ scriptContent:
             - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
             - com.twinsoft.convertigo.beans.common.XMLVector: 
               - java.lang.String: 
-                - ↑value: ./node_modules/leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css
+                - ↑value: ./node_modules/leaflet-geosearch/dist/geosearch.css
           - xmlizable: 
             - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
             - com.twinsoft.convertigo.beans.common.XMLVector: 
               - java.lang.String: 
-                - ↑value: ./node_modules/leaflet-geosearch/dist/geosearch.css
+                - ↑value: ./node_modules/leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css
     cordova_plugins: 
       - xmlizable: 
         - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
@@ -193,18 +193,12 @@ scriptContent:
             - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
             - com.twinsoft.convertigo.beans.common.XMLVector: 
               - java.lang.String: 
-                - ↑value: LeafletModule
-    local_module_ts_imports: 
-      - xmlizable: 
-        - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
-        - com.twinsoft.convertigo.beans.common.XMLVector: 
+                - ↑value: LeafletDirective
           - xmlizable: 
             - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
             - com.twinsoft.convertigo.beans.common.XMLVector: 
               - java.lang.String: 
-                - ↑value: '{ LeafletModule }'
-              - java.lang.String: 
-                - ↑value: '@asymmetrik/ngx-leaflet'
+                - ↑value: LeafletLayersDirective
     package_dependencies: 
       - xmlizable: 
         - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
@@ -220,16 +214,16 @@ scriptContent:
             - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
             - com.twinsoft.convertigo.beans.common.XMLVector: 
               - java.lang.String: 
-                - ↑value: '@asymmetrik/ngx-leaflet'
+                - ↑value: '@bluehalo/ngx-leaflet'
               - java.lang.String: 
-                - ↑value: 17.0.0
+                - ↑value: 20.0.0
           - xmlizable: 
             - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
             - com.twinsoft.convertigo.beans.common.XMLVector: 
               - java.lang.String: 
                 - ↑value: '@types/leaflet'
               - java.lang.String: 
-                - ↑value: 1.9.11
+                - ↑value: 1.9.21
           - xmlizable: 
             - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
             - com.twinsoft.convertigo.beans.common.XMLVector: 
@@ -276,6 +270,13 @@ scriptContent:
                 - ↑value: '* as GeoSearch'
               - java.lang.String: 
                 - ↑value: leaflet-geosearch
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+            - com.twinsoft.convertigo.beans.common.XMLVector: 
+              - java.lang.String: 
+                - ↑value: '{ LeafletDirective, LeafletLayersDirective }'
+              - java.lang.String: 
+                - ↑value: '@bluehalo/ngx-leaflet'
 ↓Div [ngx.components.UIDynamicElement-1713371234456]: 
   beanData: '{"ionBean":"DivTag"}'
   tagName: div
