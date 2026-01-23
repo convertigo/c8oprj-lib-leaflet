@@ -4,7 +4,7 @@
     This is the Leaflet Interactive maps for OpenStreatMap for Convertigo
     
   corsOrigin: =Origin
-  version: 8.4.0.3
+  version: 8.4.0.3_legacy
   ↓void [connectors.SqlConnector]: 🗏 connectors/void.yaml
   ↓project [references.ProjectSchemaReference]: 
     projectName: mobilebuilder_tpl_8_4_0_ngx_legacy=https://github.com/convertigo/c8oprj-mobilebuilder-tpl/archive/mobilebuilder_tpl_8_4_0_ngx_legacy.zip
