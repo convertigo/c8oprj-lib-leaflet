@@ -1,249 +1,821 @@
-comment: My First Page as root page
+↑isRoot: true
+comment: Leaflet map page
 preloadPriority: high
 scriptContent: 
   - xmlizable: 
     - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
     - com.twinsoft.convertigo.beans.common.FormatedContent: 
       →: |
-        /*Begin_c8o_PageImport*/
+        '/*Begin_c8o_PageImport*/
         /*End_c8o_PageImport*/
         /*Begin_c8o_PageDeclaration*/
+        	public demoScenario = "paris";
+        	public demoZoom = 13;
+        	public showMarkers = true;
+        	public showCircles = true;
+        	public showPolygons = false;
+        	public demoAutoCenter = false;
+        	public demoGeoSearch = true;
+        	public demoCenter = {lat: 48.8566, lng: 2.3522};
+        	public demoMarkers = [
+        		{lat: 48.85837, lng: 2.294481, options: {title: "Eiffel Tower"}, tooltip: "Eiffel Tower", popup: "Paris preset: Eiffel Tower"},
+        		{lat: 48.860611, lng: 2.337644, options: {title: "Louvre Museum"}, tooltip: "Louvre", popup: "Paris preset: Louvre Museum"}
+        	];
+        	public demoCircles = [{lat: 48.8566, lng: 2.3522, radius: 1800}];
+        	public demoPolygons = [[[48.8622, 2.3222], [48.8704, 2.3449], [48.8586, 2.3655]]];
+        	public mapReadyInfo = "Scenario paris loaded";
+        	public gpsInfo = "GPS auto-center is disabled";
         	/*End_c8o_PageDeclaration*/
         /*Begin_c8o_PageConstructor*/
         		/*End_c8o_PageConstructor*/
         /*Begin_c8o_PageFunction*/
         	/*End_c8o_PageFunction*/
-        
+        '
 segment: path-to-xfirst
-title: First page
+title: Leaflet_Map
 ↓Header [ngx.components.UIDynamicElement-1491634212350]: 
   beanData: '{"ionBean":"Header"}'
-  comment: Page header
+  comment: Top page header container
   tagName: ion-header
   ↓ToolBar [ngx.components.UIDynamicElement-1491634231108]: 
     beanData: '{"ionBean":"ToolBar"}'
+    comment: Main toolbar displayed in the header
     tagName: ion-toolbar
     ↓ButtonSet1 [ngx.components.UIDynamicElement-1588171103814]: 
       beanData: '{"ionBean":"ButtonSet","SetPosition":"plain:start"}'
+      comment: Left toolbar button group
       tagName: ion-buttons
       ↓BackButton [ngx.components.UIDynamicElement-1643993281257]: 
-        beanData: |
-          '{
-           "ionBean": "BackButton",
-           "ButtonFormType": "plain",
-           "Disabled": "plain"
-          }'
+        beanData: '{"ionBean":"BackButton"}'
+        comment: Navigates to the previous page when available
         tagName: ion-back-button
       ↓MenuButton [ngx.components.UIDynamicElement-1588172846908]: 
-        beanData: |
-          '{
-           "ionBean": "MenuButton",
-           "ButtonFormType": "plain",
-           "Disabled": "plain"
-          }'
+        beanData: '{"ionBean":"MenuButton"}'
+        comment: Toggles the side navigation menu
         tagName: ion-menu-button
     ↓BarTitle [ngx.components.UIDynamicElement-1491634265317]: 
       beanData: '{"ionBean":"BarTitle"}'
+      comment: Title container displayed in the toolbar
       tagName: ion-title
       ↓Text [ngx.components.UIText-1491634275121]: 
+        comment: Translated page title key
+        i18n: true
         textValue: 
           - xmlizable: 
             - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-            - MobileSmartSourceType: plain:Page
+            - MobileSmartSourceType: plain:Leaflet_Map
     ↓ButtonSet2 [ngx.components.UIDynamicElement-1588170811054]: 
       beanData: '{"ionBean":"ButtonSet","SetPosition":"plain:end"}'
+      comment: Right toolbar button group
       tagName: ion-buttons
-      ↓Button [ngx.components.UIDynamicElement-1588170817806]: 
+      ↓ThemeSwitchButton [ngx.components.UIDynamicElement-1770984415378]: 
+        beanData: '{"ionBean":"Button","IonFill":"plain:clear"}'
+        comment: Toggles between light and dark themes
+        tagName: ion-button
+        ↓Class [ngx.components.UIAttribute-1770984415381]: 
+          attrName: class
+          attrValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: plain:toolbar-theme-button
+          comment: CSS class used to style the theme button
+        ↓Aria [ngx.components.UIAttribute-1770984415384]: 
+          attrName: aria-label
+          attrValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: 'script:(this.global && this.global.themeDark) ? this.translate.instant(''Theme_Switch_To_Light'') : this.translate.instant(''Theme_Switch_To_Dark'')'
+          comment: Accessibility label describing the next theme action
+        ↓Event [ngx.components.UIControlEvent-1770984415387]: 
+          comment: Click handler for theme switching
+          ↓SetTheme [ngx.components.UIDynamicAction-1770984415390]: 
+            beanData: '{"ionBean":"SetThemeAction","dark":"script:!(this.global && this.global.themeDark)"}'
+            comment: Applies the opposite theme mode
+        ↓ThemeIcon [ngx.components.UIDynamicElement-1770984415393]: 
+          beanData: '{"ionBean":"Icon","IconName":"script:this?.global?.themeDark ? ''sunny-outline'' : ''moon-outline''"}'
+          comment: Dynamic icon reflecting the active theme
+          tagName: ion-icon
+          ↓IconName [ngx.components.UIAttribute-1770984415396]: 
+            attrName: '[name]'
+            attrValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: 'script:(this.global && this.global.themeDark) ? ''sunny-outline'' : ''moon-outline'''
+            comment: Binds the icon name to the current theme state
+      ↓LanguageSelector [ngx.components.UIDynamicElement-1770984415399]: 
         beanData: |
           '{
-           "ionBean": "Button",
-           "ButtonFormType": "plain",
-           "Disabled": "plain"
+           "ionBean": "Select",
+           "ControlName": "plain:name1770915137820",
+           "Justify": "plain:start"
           }'
-        tagName: ion-button
-        ↓Icon [ngx.components.UIDynamicElement-1588170831166]: 
-          beanData: '{"ionBean":"Icon","IconName":"plain:ellipsis-vertical"}'
-          tagName: ion-icon
+        comment: Language selector displayed in the toolbar
+        tagName: ion-select
+        ↓Class [ngx.components.UIAttribute-1770984415402]: 
+          attrName: class
+          attrValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: plain:toolbar-lang-select
+          comment: CSS class used to style the language selector
+        ↓Aria [ngx.components.UIAttribute-1770984415405]: 
+          attrName: aria-label
+          attrValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: script:'Language' | translate
+          comment: Accessibility label for language selection
+        ↓Interface [ngx.components.UIAttribute-1770984415408]: 
+          attrName: '[interface]'
+          attrValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: script:'popover'
+          comment: Uses popover mode for option rendering
+        ↓Value [ngx.components.UIAttribute-1770984415411]: 
+          attrName: '[value]'
+          attrValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: script:this.global.currentLanguage() ?? 'en'
+          comment: Current selected language bound to global state
+        ↓SelectedText [ngx.components.UIAttribute-1771328000001]: 
+          attrName: '[selectedText]'
+          attrValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: script:(this.global?.getLanguageLabelKey() ??  'Lang_English') | translate
+          comment: Localized label shown for the selected language
+        ↓ChangeEvent [ngx.components.UIControlEvent-1770984415414]: 
+          attrName: (ionChange)
+          comment: Triggered when the selected language changes
+          eventName: ionChange
+          ↓SetLanguage [ngx.components.UIDynamicAction-1770984415417]: 
+            beanData: |
+              '{
+               "ionBean": "SetLanguageAction",
+               "language": "script:event.detail.value",
+               "storageKey": "plain:c8o-lang",
+               "globalProperty": "plain:currentLanguage"
+              }'
+            comment: Persists and applies the selected language
+        ↓LangEN [ngx.components.UIDynamicElement-1770984415420]: 
+          beanData: '{"ionBean":"SelectOption","Value":"plain:en"}'
+          comment: English language option
+          tagName: ion-select-option
+          ↓Text [ngx.components.UIText-1770984415423]: 
+            comment: Translation key for the English option label
+            i18n: true
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:Lang_English
+        ↓LangFR [ngx.components.UIDynamicElement-1770984415426]: 
+          beanData: '{"ionBean":"SelectOption","Value":"plain:fr"}'
+          comment: French language option
+          tagName: ion-select-option
+          ↓Text [ngx.components.UIText-1770984415429]: 
+            comment: Translation key for the French option label
+            i18n: true
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:Lang_French
+        ↓LangIT [ngx.components.UIDynamicElement-1770984415432]: 
+          beanData: '{"ionBean":"SelectOption","Value":"plain:it"}'
+          comment: Italian language option
+          tagName: ion-select-option
+          ↓Text [ngx.components.UIText-1770984415435]: 
+            comment: Translation key for the Italian option label
+            i18n: true
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:Lang_Italian
+        ↓LangES [ngx.components.UIDynamicElement-1770984415438]: 
+          beanData: '{"ionBean":"SelectOption","Value":"plain:es"}'
+          comment: Spanish language option
+          tagName: ion-select-option
+          ↓Text [ngx.components.UIText-1770984415441]: 
+            comment: Translation key for the Spanish option label
+            i18n: true
+            textValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: plain:Lang_Spanish
 ↓Content [ngx.components.UIDynamicElement-1489674805352]: 
   beanData: '{"ionBean":"Content"}'
   comment: Page content
   tagName: ion-content
-  ↓UseSharedComponent [ngx.components.UIUseShared-1713370844586]: 
-    sharedcomponent: lib_Leaflet.Application.NgxApp.LeafletMap
-    ↓center [ngx.components.UIUseVariable-1713450481458]: 
-      comment: |
-        'The map will be centered on this coordinates described by this object
-        <code>
-        { lat: 46.879966, lng: -121.726909}
-        </code>
-        '
-      isEnabled: false
-      varValue: 
-        - xmlizable: 
-          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-          - MobileSmartSourceType: 'script:{ lat: 48.8405748, lng: 2.3211982}'
-    ↓layers [ngx.components.UIUseVariable-1713450481460]: 
-      comment: |
-        'The maps will display layers coming for data sources. You can give the layer information here by using an array of objects such as :
-        <code>
-        [
-        	// layer #1
-        	{
-        		name: ''OpenStreetMap'',											// Name of the layer source
-        		source: ''https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'',	// Layer url pattern (here To feed the layer from Open 																											// Street Maps)
-        		options: {														// Layer options
-        			maxZoom: 18,
-        			attribution: ''...'' 
-        		}
-        	},
-        	// Layer #2
-        	...
-        ]
-        </code>
-        
-        You can add as many layers you want.'
-      varValue: 
-        - xmlizable: 
-          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-          - MobileSmartSourceType: 'script:[{name: ''OpenStreetMap'', source: ''https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'', options: { maxZoom: 18, attribution: ''...'' }}]'
-    ↓circles [ngx.components.UIUseVariable-1713450818379]: 
-      comment: |
-        'Add Circles on the map using an array of objects :
-        <code>
-        [
-        	// Circle #1
-        	{
-        		lat: 46.879966,		// lat of the circle center
-        		lng: -121.726909,	// lng of the circle center
-        		radius: 5000			// Circle radius
-        	},
-        	// Circle #2
-        	...
-        ]
-        </code>
-        You can add as many circles you want in the array.
-        '
-      varValue: 
-        - xmlizable: 
-          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-          - MobileSmartSourceType: script:[]
-    ↓polygons [ngx.components.UIUseVariable-1713450818381]: 
-      comment: |
-        'Add polygons to the maps using an Array of objects :
-        <code>
-        [
-        	// Polygon #1
-        	[
-        		[ 46.8, -121.85 ],		// Latlng segment #1
-        		[ 46.92, -121.92 ],		// Latlng segment #2
-        		[ 46.87, -121.8 ]		// Latlng segment #3
-        	],
-        	// Polygon #2
-        	...
-        ]
-        </code>
-        '
-      varValue: 
-        - xmlizable: 
-          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-          - MobileSmartSourceType: script:[]
-    ↓zoom [ngx.components.UIUseVariable-1713459028596]: 
-      comment: Zoom factor
-      varValue: 
-        - xmlizable: 
-          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-          - MobileSmartSourceType: script:15
-    ↓markers [ngx.components.UIUseVariable-1713534127068]: 
-      comment: |
-        'Add Markers on the maps using an array of Objects :
-        <code>
-        [
-        	// Marker #1
-        	{
-        		lat: 46.879966,			// lat of marker
-        		lng: -121.726909,		// lng of Marker
-        		options: {
-        			title: ''here''		// All the marker options you can find at https://leafletjs.com/reference.html#marker
-        		},
-        		tooltip: ''I am Here'',	// The tooltip on the marker
-        		popup: ''I am Here''		// a Popup displayed over the marker
-        	},
-        	// Marker #2
-        	...
-        ]
-        </code>
-        
-        '
-      varValue: 
-        - xmlizable: 
-          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-          - MobileSmartSourceType: 'script:[{ lat: 46.879966, lng: -121.726909, options: {title: ''here''}, tooltip: ''I am Here'', popup: ''I am Here''}]'
-    ↓Event [ngx.components.UIControlEvent-1713595720565]: 
-      attrName: (MapReady)
-      comment: |
-        This event will be emitted when the map is ready and displayed. The (map) will hold a reference to the underlying leaflet map object so you can use the leaflet Api to interact with it.
-        
-        
-      eventName: MapReady
-      ↓Toast [ngx.components.UIDynamicAction-1713595732583]: 
-        beanData: '{"ionBean":"ToastAction","message":"plain:Map is ready"}'
-    ↓autoCenter [ngx.components.UIUseVariable-1713636088381]: 
-      comment: If true the map will automatically be centered on current users GPS position
-      varValue: 
-        - xmlizable: 
-          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-          - MobileSmartSourceType: script:true
-    ↓Event1 [ngx.components.UIControlEvent-1713636104049]: 
-      attrName: (GpsCentered)
-      comment: |
-        This event will be emitted when the map is ready and displayed. The (map) will hold a reference to the underlying leaflet map object so you can use the leaflet Api to interact with it.
-        
-        
-      eventName: GpsCentered
-      ↓Toast [ngx.components.UIDynamicAction-1713636113025]: 
-        beanData: '{"ionBean":"ToastAction","message":"script:''Gps position is aquired : '' + ''lat:'' + out.lat + '' lng:'' + out.lng"}'
-    ↓geoCodeSearchAddress [ngx.components.UIUseVariable-1713799386128]: 
-      comment: If true the map will automatically be centered on current users GPS position
-      varValue: 
-        - xmlizable: 
-          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-          - MobileSmartSourceType: script:true
-↓Footer [ngx.components.UIDynamicElement-1491634242460]: 
-  beanData: '{"ionBean":"Footer"}'
-  comment: Page footer
-  tagName: ion-footer
-  ↓ToolBar [ngx.components.UIDynamicElement-1491634317538]: 
-    beanData: '{"ionBean":"ToolBar"}'
-    tagName: ion-toolbar
-    ↓ButtonSet [ngx.components.UIDynamicElement-1588170246138]: 
-      beanData: '{"ionBean":"ButtonSet","SetPosition":"plain:start"}'
-      tagName: ion-buttons
-      ↓Button1 [ngx.components.UIDynamicElement-1491634332730]: 
+  ↓LayoutGrid [ngx.components.UIDynamicElement-1772100000001]: 
+    beanData: '{"ionBean":"Grid","Height":"plain:100%"}'
+    comment: 'Two-column demo layout: map first, controls and status on the right on large screens'
+    tagName: ion-grid
+    ↓LayoutRow [ngx.components.UIDynamicElement-1772100000002]: 
+      beanData: '{"ionBean":"GridRow"}'
+      comment: Row bean that organizes the map and side panel columns
+      tagName: ion-row
+      ↓MapCol [ngx.components.UIDynamicElement-1772100000003]: 
         beanData: |
           '{
-           "ionBean": "Button",
-           "ButtonFormType": "plain",
-           "Disabled": "plain"
+           "ionBean": "GridCol",
+           "SizeLg": "plain:8",
+           "SizeMd": "plain:7",
+           "SizeSm": "plain:12",
+           "SizeXl": "plain:9",
+           "SizeXs": "plain:12"
           }'
-        tagName: ion-button
-        ↓Text [ngx.components.UIText-1491634340354]: 
-          textValue: 
+        comment: Column bean containing the Leaflet shared component
+        tagName: ion-col
+        ↓UseSharedComponent [ngx.components.UIUseShared-1713370844586]: 
+          sharedcomponent: lib_Leaflet.Application.NgxApp.LeafletMap
+          ↓center [ngx.components.UIUseVariable-1713450481458]: 
+            comment: |
+              'The map will be centered on this coordinates described by this object
+              <code>
+              { lat: 46.879966, lng: -121.726909}
+              </code>
+              '
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:this.demoCenter
+          ↓layers [ngx.components.UIUseVariable-1713450481460]: 
+            comment: |
+              'The maps will display layers coming for data sources. You can give the layer information here by using an array of objects such as :
+              <code>
+              [
+              	// layer #1
+              	{
+              		name: ''OpenStreetMap'',											// Name of the layer source
+              		source: ''https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'',	// Layer url pattern (here To feed the layer from Open 																											// Street Maps)
+              		options: {														// Layer options
+              			maxZoom: 18,
+              			attribution: ''...'' 
+              		}
+              	},
+              	// Layer #2
+              	...
+              ]
+              </code>
+              
+              You can add as many layers you want.'
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: 'script:[{name: ''OpenStreetMap'', source: ''https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'', options: {maxZoom: 19, attribution: ''© OpenStreetMap contributors''}}, {name: ''OpenTopoMap'', source: ''https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'', options: {maxZoom: 17, attribution: ''© OpenTopoMap contributors''}}]'
+          ↓circles [ngx.components.UIUseVariable-1713450818379]: 
+            comment: |
+              'Add Circles on the map using an array of objects :
+              <code>
+              [
+              	// Circle #1
+              	{
+              		lat: 46.879966,		// lat of the circle center
+              		lng: -121.726909,	// lng of the circle center
+              		radius: 5000			// Circle radius
+              	},
+              	// Circle #2
+              	...
+              ]
+              </code>
+              You can add as many circles you want in the array.
+              '
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: 'script:this.showCircles ? this.demoCircles : []'
+          ↓polygons [ngx.components.UIUseVariable-1713450818381]: 
+            comment: |
+              'Add polygons to the maps using an Array of objects :
+              <code>
+              [
+              	// Polygon #1
+              	[
+              		[ 46.8, -121.85 ],		// Latlng segment #1
+              		[ 46.92, -121.92 ],		// Latlng segment #2
+              		[ 46.87, -121.8 ]		// Latlng segment #3
+              	],
+              	// Polygon #2
+              	...
+              ]
+              </code>
+              '
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: 'script:this.showPolygons ? this.demoPolygons : []'
+          ↓zoom [ngx.components.UIUseVariable-1713459028596]: 
+            comment: Zoom factor
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:this.demoZoom
+          ↓markers [ngx.components.UIUseVariable-1713534127068]: 
+            comment: |
+              'Add Markers on the maps using an array of Objects :
+              <code>
+              [
+              	// Marker #1
+              	{
+              		lat: 46.879966,			// lat of marker
+              		lng: -121.726909,		// lng of Marker
+              		options: {
+              			title: ''here''		// All the marker options you can find at https://leafletjs.com/reference.html#marker
+              		},
+              		tooltip: ''I am Here'',	// The tooltip on the marker
+              		popup: ''I am Here''		// a Popup displayed over the marker
+              	},
+              	// Marker #2
+              	...
+              ]
+              </code>
+              
+              '
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: 'script:this.showMarkers ? this.demoMarkers : []'
+          ↓Event [ngx.components.UIControlEvent-1713595720565]: 
+            attrName: (MapReady)
+            comment: |
+              This event will be emitted when the map is ready and displayed. The (map) will hold a reference to the underlying leaflet map object so you can use the leaflet Api to interact with it.
+              
+              
+            eventName: MapReady
+            ↓SetMapReadyInfo [ngx.components.UICustomAction-1772000000067]: 
+              actionValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                  - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                    →: |
+                      '		var center = event && event.getCenter ? event.getCenter() : null;
+                      		if (center && typeof center.lat !== "undefined" && typeof center.lng !== "undefined") {
+                      			page.mapReadyInfo = "Map ready @ " + center.lat.toFixed(5) + ", " + center.lng.toFixed(5);
+                      		}
+                      		else {
+                      			page.mapReadyInfo = "Map ready";
+                      		}
+                      		resolve();
+                      '
+          ↓autoCenter [ngx.components.UIUseVariable-1713636088381]: 
+            comment: If true the map will automatically be centered on current users GPS position
+            varValue: 
+              - xmlizable: 
+                - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                - MobileSmartSourceType: script:this.demoAutoCenter
+          ↓Event1 [ngx.components.UIControlEvent-1713636104049]: 
+            attrName: (GpsCentered)
+            comment: |
+              This event will be emitted when the map is ready and displayed. The (map) will hold a reference to the underlying leaflet map object so you can use the leaflet Api to interact with it.
+              
+              
+            eventName: GpsCentered
+            ↓SetGpsInfo [ngx.components.UICustomAction-1772000000068]: 
+              actionValue: 
+                - xmlizable: 
+                  - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                  - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                    →: |
+                      '		if (event && typeof event.lat !== "undefined" && typeof event.lng !== "undefined") {
+                      			page.gpsInfo = "GPS center @ " + event.lat + ", " + event.lng;
+                      			page.demoCenter = {lat: event.lat, lng: event.lng};
+                      		}
+                      		resolve();
+                      '
+        ↓geoCodeSearchAddress [ngx.components.UIUseVariable-1713799386128]: 
+          comment: If true the map will automatically be centered on current users GPS position
+          varValue: 
             - xmlizable: 
               - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-              - MobileSmartSourceType: plain:Action 1
-    ↓ButtonSet1 [ngx.components.UIDynamicElement-1588170269871]: 
-      beanData: '{"ionBean":"ButtonSet","SetPosition":"plain:end"}'
-      tagName: ion-buttons
-      ↓Button2 [ngx.components.UIDynamicElement-1491634376874]: 
+              - MobileSmartSourceType: script:this.demoGeoSearch
+        ↓minHeight [ngx.components.UIUseVariable-1772100000005]: 
+          comment: Keeps the map prominent when the page loads
+          varValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: plain:72vh
+      ↓PanelCol [ngx.components.UIDynamicElement-1772100000004]: 
         beanData: |
           '{
-           "ionBean": "Button",
-           "ButtonFormType": "plain",
-           "Disabled": "plain"
+           "ionBean": "GridCol",
+           "SizeLg": "plain:4",
+           "SizeMd": "plain:5",
+           "SizeSm": "plain:12",
+           "SizeXl": "plain:3",
+           "SizeXs": "plain:12"
           }'
-        tagName: ion-button
-        ↓Text [ngx.components.UIText-1491634383107]: 
-          textValue: 
-            - xmlizable: 
-              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
-              - MobileSmartSourceType: plain:Action 2
+        comment: Column bean containing demo settings and status accordions
+        tagName: ion-col
+        ↓SettingsAccordions [ngx.components.UIDynamicElement-1771500674065]: 
+          beanData: '{"ionBean":"AccordionGroup","Expand":"plain:inset"}'
+          comment: Collapsed settings panels to keep map prominent on load
+          tagName: ion-accordion-group
+          ↓ControlsAccordion [ngx.components.UIDynamicElement-1771500679192]: 
+            beanData: '{"ionBean":"Accordion","Value":"plain:controls"}'
+            comment: Accordion bean grouping interactive demo controls
+            tagName: ion-accordion
+            ↓HeaderItem [ngx.components.UIDynamicElement-1771500683779]: 
+              beanData: '{"ionBean":"GenericItem","IonSlot":"plain:header"}'
+              comment: Header item bean displayed in the accordion header slot
+              tagName: ion-item
+              ↓Label [ngx.components.UIDynamicElement-1771500691509]: 
+                beanData: '{"ionBean":"Label"}'
+                comment: Label bean for the current UI item
+                tagName: ion-label
+                ↓Text [ngx.components.UIText-1771500697356]: 
+                  i18n: true
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:Leaflet_Demo_Controls
+            ↓DemoControlsCard [ngx.components.UIDynamicElement-1772000000001]: 
+              beanData: '{"ionBean":"Card"}'
+              comment: Playground controls to demonstrate the Leaflet shared component inputs
+              tagName: ion-card
+              ↓CardHeader [ngx.components.UIDynamicElement-1772000000002]: 
+                beanData: '{"ionBean":"CardHeader"}'
+                comment: Card header bean
+                tagName: ion-card-header
+                ↓CardTitle [ngx.components.UIDynamicElement-1772000000003]: 
+                  beanData: '{"ionBean":"CardTitle"}'
+                  comment: Card title bean
+                  tagName: ion-card-title
+                  ↓Text [ngx.components.UIText-1772000000004]: 
+                    i18n: true
+                    textValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: plain:Leaflet_Demo_Controls
+              ↓CardContent [ngx.components.UIDynamicElement-1772000000005]: 
+                beanData: '{"ionBean":"CardContent"}'
+                comment: Card content bean
+                tagName: ion-card-content
+                ↓PresetItem [ngx.components.UIDynamicElement-1772000000006]: 
+                  beanData: '{"ionBean":"GenericItem"}'
+                  comment: Item bean containing the scenario selector
+                  tagName: ion-item
+                  ↓Label [ngx.components.UIDynamicElement-1772000000007]: 
+                    beanData: '{"ionBean":"Label","Position":"plain:stacked"}'
+                    comment: Label bean for the current UI item
+                    tagName: ion-label
+                    ↓Text [ngx.components.UIText-1772000000008]: 
+                      i18n: true
+                      textValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: plain:Leaflet_Preset
+                  ↓PresetSelect [ngx.components.UIDynamicElement-1772000000009]: 
+                    beanData: |
+                      '{
+                       "ionBean": "Select",
+                       "ControlName": "plain:name1772000000009",
+                       "Justify": "plain:start"
+                      }'
+                    comment: Select bean used to choose a demo scenario
+                    tagName: ion-select
+                    ↓Value [ngx.components.UIAttribute-1772000000010]: 
+                      attrName: '[value]'
+                      attrValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: script:this.demoScenario
+                    ↓ChangeEvent [ngx.components.UIControlEvent-1772000000011]: 
+                      attrName: (ionChange)
+                      eventName: ionChange
+                      ↓ApplyScenario [ngx.components.UICustomAction-1772000000012]: 
+                        actionValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                            - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                              →: |
+                                '		var scenarioKey = event && event.detail && event.detail.value ? event.detail.value : "paris";
+                                		var scenarios = {
+                                			paris: {
+                                				center: {lat: 48.8566, lng: 2.3522},
+                                				zoom: 13,
+                                				markers: [
+                                					{lat: 48.85837, lng: 2.294481, options: {title: "Eiffel Tower"}, tooltip: "Eiffel Tower", popup: "Paris preset: Eiffel Tower"},
+                                					{lat: 48.860611, lng: 2.337644, options: {title: "Louvre Museum"}, tooltip: "Louvre", popup: "Paris preset: Louvre Museum"}
+                                				],
+                                				circles: [{lat: 48.8566, lng: 2.3522, radius: 1800}],
+                                				polygons: [[[48.8622, 2.3222], [48.8704, 2.3449], [48.8586, 2.3655]]]
+                                			},
+                                			newyork: {
+                                				center: {lat: 40.7128, lng: -74.006},
+                                				zoom: 12,
+                                				markers: [
+                                					{lat: 40.758896, lng: -73.98513, options: {title: "Times Square"}, tooltip: "Times Square", popup: "New York preset: Times Square"},
+                                					{lat: 40.689247, lng: -74.044502, options: {title: "Statue of Liberty"}, tooltip: "Statue of Liberty", popup: "New York preset: Statue of Liberty"}
+                                				],
+                                				circles: [{lat: 40.73061, lng: -73.935242, radius: 2200}],
+                                				polygons: [[[40.7498, -74.0135], [40.7648, -73.973], [40.7412, -73.9558]]]
+                                			},
+                                			tokyo: {
+                                				center: {lat: 35.6762, lng: 139.6503},
+                                				zoom: 12,
+                                				markers: [
+                                					{lat: 35.710063, lng: 139.8107, options: {title: "Tokyo Skytree"}, tooltip: "Tokyo Skytree", popup: "Tokyo preset: Tokyo Skytree"},
+                                					{lat: 35.65858, lng: 139.745433, options: {title: "Tokyo Tower"}, tooltip: "Tokyo Tower", popup: "Tokyo preset: Tokyo Tower"}
+                                				],
+                                				circles: [{lat: 35.6895, lng: 139.6917, radius: 2400}],
+                                				polygons: [[[35.6993, 139.769], [35.6895, 139.7358], [35.6668, 139.7516]]]
+                                			}
+                                		};
+                                		if (!scenarios[scenarioKey]) {
+                                			scenarioKey = "paris";
+                                		}
+                                		var selected = scenarios[scenarioKey];
+                                		page.demoScenario = scenarioKey;
+                                		page.demoCenter = selected.center;
+                                		page.demoZoom = selected.zoom;
+                                		page.demoMarkers = selected.markers;
+                                		page.demoCircles = selected.circles;
+                                		page.demoPolygons = selected.polygons;
+                                		page.mapReadyInfo = "Scenario " + scenarioKey + " loaded";
+                                		resolve();
+                                '
+                    ↓OptionParis [ngx.components.UIDynamicElement-1772000000013]: 
+                      beanData: '{"ionBean":"SelectOption","Value":"plain:paris"}'
+                      comment: Option bean for the Paris preset
+                      tagName: ion-select-option
+                      ↓Text [ngx.components.UIText-1772000000014]: 
+                        i18n: true
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Leaflet_Scenario_Paris
+                    ↓OptionNewYork [ngx.components.UIDynamicElement-1772000000015]: 
+                      beanData: '{"ionBean":"SelectOption","Value":"plain:newyork"}'
+                      comment: Option bean for the New York preset
+                      tagName: ion-select-option
+                      ↓Text [ngx.components.UIText-1772000000016]: 
+                        i18n: true
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Leaflet_Scenario_NewYork
+                    ↓OptionTokyo [ngx.components.UIDynamicElement-1772000000017]: 
+                      beanData: '{"ionBean":"SelectOption","Value":"plain:tokyo"}'
+                      comment: Option bean for the Tokyo preset
+                      tagName: ion-select-option
+                      ↓Text [ngx.components.UIText-1772000000018]: 
+                        i18n: true
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:Leaflet_Scenario_Tokyo
+                ↓ToggleItemMarkers [ngx.components.UIDynamicElement-1772000000019]: 
+                  beanData: '{"ionBean":"GenericItem"}'
+                  comment: Item bean containing a toggle control
+                  tagName: ion-item
+                  ↓Label [ngx.components.UIDynamicElement-1772000000020]: 
+                    beanData: '{"ionBean":"Label","Position":"plain:fixed"}'
+                    comment: Label bean for the current UI item
+                    tagName: ion-label
+                    ↓Text [ngx.components.UIText-1772000000021]: 
+                      i18n: true
+                      textValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: plain:Leaflet_Show_Markers
+                  ↓Toggle [ngx.components.UIDynamicElement-1772000000022]: 
+                    beanData: '{"ionBean":"Toggle","ControlName":"plain:name1772000000022"}'
+                    comment: Toggle bean bound to a boolean demo option
+                    tagName: ion-toggle
+                    ↓NgModel [ngx.components.UIAttribute-1772000000023]: 
+                      attrName: '[(ngModel)]'
+                      attrValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: script:this.showMarkers
+                ↓ToggleItemCircles [ngx.components.UIDynamicElement-1772000000024]: 
+                  beanData: '{"ionBean":"GenericItem"}'
+                  comment: Item bean containing a toggle control
+                  tagName: ion-item
+                  ↓Label [ngx.components.UIDynamicElement-1772000000025]: 
+                    beanData: '{"ionBean":"Label","Position":"plain:fixed"}'
+                    comment: Label bean for the current UI item
+                    tagName: ion-label
+                    ↓Text [ngx.components.UIText-1772000000026]: 
+                      i18n: true
+                      textValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: plain:Leaflet_Show_Circles
+                  ↓Toggle [ngx.components.UIDynamicElement-1772000000027]: 
+                    beanData: '{"ionBean":"Toggle","ControlName":"plain:name1772000000027"}'
+                    comment: Toggle bean bound to a boolean demo option
+                    tagName: ion-toggle
+                    ↓NgModel [ngx.components.UIAttribute-1772000000028]: 
+                      attrName: '[(ngModel)]'
+                      attrValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: script:this.showCircles
+                ↓ToggleItemPolygons [ngx.components.UIDynamicElement-1772000000029]: 
+                  beanData: '{"ionBean":"GenericItem"}'
+                  comment: Item bean containing a toggle control
+                  tagName: ion-item
+                  ↓Label [ngx.components.UIDynamicElement-1772000000030]: 
+                    beanData: '{"ionBean":"Label","Position":"plain:fixed"}'
+                    comment: Label bean for the current UI item
+                    tagName: ion-label
+                    ↓Text [ngx.components.UIText-1772000000031]: 
+                      i18n: true
+                      textValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: plain:Leaflet_Show_Polygons
+                  ↓Toggle [ngx.components.UIDynamicElement-1772000000032]: 
+                    beanData: '{"ionBean":"Toggle","ControlName":"plain:name1772000000032"}'
+                    comment: Toggle bean bound to a boolean demo option
+                    tagName: ion-toggle
+                    ↓NgModel [ngx.components.UIAttribute-1772000000033]: 
+                      attrName: '[(ngModel)]'
+                      attrValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: script:this.showPolygons
+                ↓ToggleItemAutoCenter [ngx.components.UIDynamicElement-1772000000034]: 
+                  beanData: '{"ionBean":"GenericItem"}'
+                  comment: Item bean containing a toggle control
+                  tagName: ion-item
+                  ↓Label [ngx.components.UIDynamicElement-1772000000035]: 
+                    beanData: '{"ionBean":"Label","Position":"plain:fixed"}'
+                    comment: Label bean for the current UI item
+                    tagName: ion-label
+                    ↓Text [ngx.components.UIText-1772000000036]: 
+                      i18n: true
+                      textValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: plain:Leaflet_Auto_Center
+                  ↓Toggle [ngx.components.UIDynamicElement-1772000000037]: 
+                    beanData: '{"ionBean":"Toggle","ControlName":"plain:name1772000000037"}'
+                    comment: Toggle bean bound to a boolean demo option
+                    tagName: ion-toggle
+                    ↓NgModel [ngx.components.UIAttribute-1772000000038]: 
+                      attrName: '[(ngModel)]'
+                      attrValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: script:this.demoAutoCenter
+                ↓ToggleItemGeoSearch [ngx.components.UIDynamicElement-1772000000039]: 
+                  beanData: '{"ionBean":"GenericItem"}'
+                  comment: Item bean containing a toggle control
+                  tagName: ion-item
+                  ↓Label [ngx.components.UIDynamicElement-1772000000040]: 
+                    beanData: '{"ionBean":"Label","Position":"plain:fixed"}'
+                    comment: Label bean for the current UI item
+                    tagName: ion-label
+                    ↓Text [ngx.components.UIText-1772000000041]: 
+                      i18n: true
+                      textValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: plain:Leaflet_Geosearch
+                  ↓Toggle [ngx.components.UIDynamicElement-1772000000042]: 
+                    beanData: '{"ionBean":"Toggle","ControlName":"plain:name1772000000042"}'
+                    comment: Toggle bean bound to a boolean demo option
+                    tagName: ion-toggle
+                    ↓NgModel [ngx.components.UIAttribute-1772000000043]: 
+                      attrName: '[(ngModel)]'
+                      attrValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: script:this.demoGeoSearch
+                ↓ZoomItem [ngx.components.UIDynamicElement-1772000000044]: 
+                  beanData: '{"ionBean":"GenericItem"}'
+                  comment: Item bean containing zoom controls
+                  tagName: ion-item
+                  ↓Label [ngx.components.UIDynamicElement-1772000000045]: 
+                    beanData: '{"ionBean":"Label","Position":"plain:stacked"}'
+                    comment: Label bean for the current UI item
+                    tagName: ion-label
+                    ↓Text [ngx.components.UIText-1772000000046]: 
+                      textValue: 
+                        - xmlizable: 
+                          - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                          - MobileSmartSourceType: 'script:''Zoom: '' + this.demoZoom'
+                  ↓Buttons [ngx.components.UIDynamicElement-1772000000047]: 
+                    beanData: '{"ionBean":"ButtonSet","SetPosition":"plain:start"}'
+                    comment: Button set bean for zoom actions
+                    tagName: ion-buttons
+                    ↓ZoomOutButton [ngx.components.UIDynamicElement-1772000000048]: 
+                      beanData: '{"ionBean":"Button","IonFill":"plain:solid"}'
+                      comment: Button bean that decreases map zoom
+                      tagName: ion-button
+                      ↓Event [ngx.components.UIControlEvent-1772000000049]: 
+                        ↓ZoomOut [ngx.components.UICustomAction-1772000000050]: 
+                          actionValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                              - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                                →: |
+                                  		page.demoZoom = Math.max(2, (page.demoZoom || 13) - 1);
+                                  		resolve();
+                                  
+                      ↓Text [ngx.components.UIText-1772000000051]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:-
+                    ↓ZoomInButton [ngx.components.UIDynamicElement-1772000000052]: 
+                      beanData: '{"ionBean":"Button","IonFill":"plain:solid"}'
+                      comment: Button bean that increases map zoom
+                      tagName: ion-button
+                      ↓Event [ngx.components.UIControlEvent-1772000000053]: 
+                        ↓ZoomIn [ngx.components.UICustomAction-1772000000054]: 
+                          actionValue: 
+                            - xmlizable: 
+                              - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+                              - com.twinsoft.convertigo.beans.common.FormatedContent: 
+                                →: |
+                                  		page.demoZoom = Math.min(18, (page.demoZoom || 13) + 1);
+                                  		resolve();
+                                  
+                      ↓Text [ngx.components.UIText-1772000000055]: 
+                        textValue: 
+                          - xmlizable: 
+                            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                            - MobileSmartSourceType: plain:+
+              ↓Slot [ngx.components.UIAttribute-1771500707416]: 
+                attrName: slot
+                attrValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:content
+          ↓StatusAccordion [ngx.components.UIDynamicElement-1771500679252]: 
+            beanData: '{"ionBean":"Accordion","Value":"plain:status"}'
+            comment: Accordion bean grouping runtime status information
+            tagName: ion-accordion
+            ↓HeaderItem [ngx.components.UIDynamicElement-1771500683850]: 
+              beanData: '{"ionBean":"GenericItem","IonSlot":"plain:header"}'
+              comment: Header item bean displayed in the accordion header slot
+              tagName: ion-item
+              ↓Label [ngx.components.UIDynamicElement-1771500691601]: 
+                beanData: '{"ionBean":"Label"}'
+                comment: Label bean for the current UI item
+                tagName: ion-label
+                ↓Text [ngx.components.UIText-1771500697292]: 
+                  i18n: true
+                  textValue: 
+                    - xmlizable: 
+                      - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                      - MobileSmartSourceType: plain:Leaflet_Demo_Status
+            ↓DemoStatusCard [ngx.components.UIDynamicElement-1772000000056]: 
+              beanData: '{"ionBean":"Card"}'
+              comment: Displays map and GPS event traces for the demo
+              tagName: ion-card
+              ↓CardHeader [ngx.components.UIDynamicElement-1772000000057]: 
+                beanData: '{"ionBean":"CardHeader"}'
+                comment: Card header bean
+                tagName: ion-card-header
+                ↓CardTitle [ngx.components.UIDynamicElement-1772000000058]: 
+                  beanData: '{"ionBean":"CardTitle"}'
+                  comment: Card title bean
+                  tagName: ion-card-title
+                  ↓Text [ngx.components.UIText-1772000000059]: 
+                    i18n: true
+                    textValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: plain:Leaflet_Demo_Status
+              ↓CardContent [ngx.components.UIDynamicElement-1772000000060]: 
+                beanData: '{"ionBean":"CardContent"}'
+                comment: Card content bean
+                tagName: ion-card-content
+                ↓MapReadyParagraph [ngx.components.UIDynamicElement-1772000000061]: 
+                  beanData: '{"ionBean":"Paragraph"}'
+                  comment: Paragraph bean showing the latest map-ready event state
+                  tagName: p
+                  ↓Text [ngx.components.UIText-1772000000062]: 
+                    textValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: 'script:''MapReady: '' + this.mapReadyInfo'
+                ↓GpsParagraph [ngx.components.UIDynamicElement-1772000000063]: 
+                  beanData: '{"ionBean":"Paragraph"}'
+                  comment: Paragraph bean showing the latest GPS-centered event state
+                  tagName: p
+                  ↓Text [ngx.components.UIText-1772000000064]: 
+                    textValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: 'script:''GpsCentered: '' + this.gpsInfo'
+                ↓OverlaysParagraph [ngx.components.UIDynamicElement-1772000000065]: 
+                  beanData: '{"ionBean":"Paragraph"}'
+                  comment: Paragraph bean showing overlay counters
+                  tagName: p
+                  ↓Text [ngx.components.UIText-1772000000066]: 
+                    textValue: 
+                      - xmlizable: 
+                        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                        - MobileSmartSourceType: 'script:''Overlays -> markers: '' + (this.showMarkers ? this.demoMarkers.length : 0) + '', circles: '' + (this.showCircles ? this.demoCircles.length : 0) + '', polygons: '' + (this.showPolygons ? this.demoPolygons.length : 0)'
+              ↓Slot [ngx.components.UIAttribute-1771500707322]: 
+                attrName: slot
+                attrValue: 
+                  - xmlizable: 
+                    - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+                    - MobileSmartSourceType: plain:content

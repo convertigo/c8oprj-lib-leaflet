@@ -30,21 +30,9 @@ Describes the mobile application global properties
 <details><summary><span style="color:DarkGoldenRod"><i>Pages</i></span></summary><blockquote><p>
 
 
-<details><summary><b>Page</b> : My First Page as root page</summary><blockquote><p>
-
-
 ### ![](https://github.com/convertigo/convertigo/blob/develop/engine/src/com/twinsoft/convertigo/beans/ngx/components/images/pagecomponent_color_16x16.png?raw=true "PageComponent") Page
 
-My First Page as root page
-</p></blockquote></details>
-
-<details><summary><b>Page1</b></summary><blockquote><p>
-
-
-### ![](https://github.com/convertigo/convertigo/blob/develop/engine/src/com/twinsoft/convertigo/beans/ngx/components/images/pagecomponent_color_16x16.png?raw=true "PageComponent") Page1
-
-
-</p></blockquote></details>
+Leaflet map page
 </p></blockquote></details>
 
 <details><summary><span style="color:DarkGoldenRod"><i>Shared Components</i></span></summary><blockquote><p>
@@ -70,7 +58,16 @@ comment
 <img src="https://github.com/convertigo/convertigo/blob/develop/engine/src/com/twinsoft/convertigo/beans/ngx/components/images/uicompvariable_16x16.png?raw=true "  alt="UICompVariable" >&nbsp;autoCenter
 </td>
 <td>
-If true the map will automatically be centered on current users GPS position
+Automatically centers map on current GPS position when enabled.
+Example value:
+
+
+```
+true
+```
+
+
+
 </td>
 </tr>
 <tr>
@@ -78,13 +75,12 @@ If true the map will automatically be centered on current users GPS position
 <img src="https://github.com/convertigo/convertigo/blob/develop/engine/src/com/twinsoft/convertigo/beans/ngx/components/images/uicompvariable_16x16.png?raw=true "  alt="UICompVariable" >&nbsp;center
 </td>
 <td>
-The map will be centered on this coordinates described by this object
+Map center coordinates used to initialize or recenter the map.
+Example value:
 
 
 ```
-
-{ lat: 46.879966, lng: -121.726909}
-
+{ lat: 48.8566, lng: 2.3522 }
 ```
 
 
@@ -96,26 +92,15 @@ The map will be centered on this coordinates described by this object
 <img src="https://github.com/convertigo/convertigo/blob/develop/engine/src/com/twinsoft/convertigo/beans/ngx/components/images/uicompvariable_16x16.png?raw=true "  alt="UICompVariable" >&nbsp;circles
 </td>
 <td>
-Add Circles on the map using an array of objects :
+Circle overlays rendered on the map.
+Example value:
 
 
 ```
-
-[
-	// Circle #1
-	{
-		lat: 46.879966,		// lat of the circle center
-		lng: -121.726909,	// lng of the circle center
-		radius: 5000			// Circle radius
-	},
-	// Circle #2
-	...
-]
-
+[{ lat: 48.8566, lng: 2.3522, radius: 1800, tooltip: 'Center', popup: 'Circle example' }]
 ```
 
 
-You can add as many circles you want in the array.
 
 </td>
 </tr>
@@ -124,7 +109,16 @@ You can add as many circles you want in the array.
 <img src="https://github.com/convertigo/convertigo/blob/develop/engine/src/com/twinsoft/convertigo/beans/ngx/components/images/uicompvariable_16x16.png?raw=true "  alt="UICompVariable" >&nbsp;disabled
 </td>
 <td>
-If true the map will automatically be centered on current users GPS position
+Disables map interactions (drag/zoom) when enabled.
+Example value:
+
+
+```
+false
+```
+
+
+
 </td>
 </tr>
 <tr>
@@ -132,7 +126,16 @@ If true the map will automatically be centered on current users GPS position
 <img src="https://github.com/convertigo/convertigo/blob/develop/engine/src/com/twinsoft/convertigo/beans/ngx/components/images/uicompvariable_16x16.png?raw=true "  alt="UICompVariable" >&nbsp;geoCodeSearchAddress
 </td>
 <td>
-If true the a search box will be displayed at the top of the map to enable users to search for addresses.
+Displays a geocoding search bar on top of the map when enabled.
+Example value:
+
+
+```
+true
+```
+
+
+
 </td>
 </tr>
 <tr>
@@ -140,30 +143,16 @@ If true the a search box will be displayed at the top of the map to enable users
 <img src="https://github.com/convertigo/convertigo/blob/develop/engine/src/com/twinsoft/convertigo/beans/ngx/components/images/uicompvariable_16x16.png?raw=true "  alt="UICompVariable" >&nbsp;layers
 </td>
 <td>
-The maps will display layers coming for data sources. You can give the layer information here by using an array of objects such as :
+Tile layer definitions rendered as base layers.
+Example value:
 
 
 ```
-
-[
-	// layer #1
-	{
-		name: 'OpenStreetMap',											// Name of the layer source
-		source: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',	// Layer url pattern (here To feed the layer from Open 																											// Street Maps)
-		options: {														// Layer options
-			maxZoom: 18,
-			attribution: '...' 
-		}
-	},
-	// Layer #2
-	...
-]
-
+[{ name: 'OpenStreetMap', source: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', options: { maxZoom: 19, attribution: '© OpenStreetMap contributors' } }]
 ```
 
 
 
-You can add as many layers you want.
 </td>
 </tr>
 <tr>
@@ -171,28 +160,13 @@ You can add as many layers you want.
 <img src="https://github.com/convertigo/convertigo/blob/develop/engine/src/com/twinsoft/convertigo/beans/ngx/components/images/uicompvariable_16x16.png?raw=true "  alt="UICompVariable" >&nbsp;markers
 </td>
 <td>
-Add Markers on the maps using an array of Objects :
+Marker overlays rendered on top of base layers.
+Example value:
 
 
 ```
-
-[
-	// Marker #1
-	{
-		lat: 46.879966,			// lat of marker
-		lng: -121.726909,		// lng of Marker
-		options: {
-			title: 'here'		// All the marker options you can find at https://leafletjs.com/reference.html#marker
-		},
-		tooltip: 'I am Here',	// The tooltip on the marker
-		popup: 'I am Here'		// a Popup displayed over the marker
-	},
-	// Marker #2
-	...
-]
-
+[{ lat: 48.85837, lng: 2.294481, options: { title: 'Eiffel Tower' }, tooltip: 'Eiffel Tower', popup: 'Paris preset: Eiffel Tower' }]
 ```
-
 
 
 
@@ -203,7 +177,22 @@ Add Markers on the maps using an array of Objects :
 <img src="https://github.com/convertigo/convertigo/blob/develop/engine/src/com/twinsoft/convertigo/beans/ngx/components/images/uicompvariable_16x16.png?raw=true "  alt="UICompVariable" >&nbsp;minHeight
 </td>
 <td>
-If true the map will automatically be centered on current users GPS position
+Minimum CSS height applied to the map container.
+Example value:
+
+
+```
+'72vh'
+```
+
+ or 
+
+```
+'480px'
+```
+
+
+
 </td>
 </tr>
 <tr>
@@ -211,22 +200,12 @@ If true the map will automatically be centered on current users GPS position
 <img src="https://github.com/convertigo/convertigo/blob/develop/engine/src/com/twinsoft/convertigo/beans/ngx/components/images/uicompvariable_16x16.png?raw=true "  alt="UICompVariable" >&nbsp;polygons
 </td>
 <td>
-Add polygons to the maps using an Array of objects :
+Polygon overlays rendered on the map.
+Example value:
 
 
 ```
-
-[
-	// Polygon #1
-	[
-		[ 46.8, -121.85 ],		// Latlng segment #1
-		[ 46.92, -121.92 ],		// Latlng segment #2
-		[ 46.87, -121.8 ]		// Latlng segment #3
-	],
-	// Polygon #2
-	...
-]
-
+[{ coord: [[48.8622, 2.3222], [48.8704, 2.3449], [48.8586, 2.3655]], tooltip: 'Area', popup: 'Polygon example' }]
 ```
 
 
@@ -238,6 +217,15 @@ Add polygons to the maps using an Array of objects :
 <img src="https://github.com/convertigo/convertigo/blob/develop/engine/src/com/twinsoft/convertigo/beans/ngx/components/images/uicompvariable_16x16.png?raw=true "  alt="UICompVariable" >&nbsp;searchLabel
 </td>
 <td>
+Label displayed inside the geosearch input.
+Example value:
+
+
+```
+'Search address'
+```
+
+
 
 </td>
 </tr>
@@ -246,7 +234,16 @@ Add polygons to the maps using an Array of objects :
 <img src="https://github.com/convertigo/convertigo/blob/develop/engine/src/com/twinsoft/convertigo/beans/ngx/components/images/uicompvariable_16x16.png?raw=true "  alt="UICompVariable" >&nbsp;zoom
 </td>
 <td>
-Zoom factor
+Initial zoom level.
+Example value:
+
+
+```
+13
+```
+
+
+
 </td>
 </tr>
 </table>

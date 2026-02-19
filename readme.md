@@ -58,133 +58,142 @@ The Leaflet Shared Component. Use this component to add OpenStreetMaps maps to y
 <th>name</th><th>comment</th>
 </tr>
 <tr>
-<td>autoCenter</td><td>If true the map will automatically be centered on current users GPS position</td>
-</tr>
-<tr>
-<td>center</td><td>The map will be centered on this coordinates described by this object
+<td>autoCenter</td><td>Automatically centers map on current GPS position when enabled.
+Example value:
 
 
 ```
-
-{ lat: 46.879966, lng: -121.726909}
-
+true
 ```
 
 
 </td>
 </tr>
 <tr>
-<td>circles</td><td>Add Circles on the map using an array of objects :
+<td>center</td><td>Map center coordinates used to initialize or recenter the map.
+Example value:
 
 
 ```
-
-[
-	// Circle #1
-	{
-		lat: 46.879966,		// lat of the circle center
-		lng: -121.726909,	// lng of the circle center
-		radius: 5000			// Circle radius
-	},
-	// Circle #2
-	...
-]
-
-```
-
-
-You can add as many circles you want in the array.
-</td>
-</tr>
-<tr>
-<td>disabled</td><td>If true the map will automatically be centered on current users GPS position</td>
-</tr>
-<tr>
-<td>geoCodeSearchAddress</td><td>If true the a search box will be displayed at the top of the map to enable users to search for addresses.</td>
-</tr>
-<tr>
-<td>layers</td><td>The maps will display layers coming for data sources. You can give the layer information here by using an array of objects such as :
-
-
-```
-
-[
-	// layer #1
-	{
-		name: 'OpenStreetMap',											// Name of the layer source
-		source: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',	// Layer url pattern (here To feed the layer from Open 																											// Street Maps)
-		options: {														// Layer options
-			maxZoom: 18,
-			attribution: '...' 
-		}
-	},
-	// Layer #2
-	...
-]
-
-```
-
-
-
-You can add as many layers you want.</td>
-</tr>
-<tr>
-<td>markers</td><td>Add Markers on the maps using an array of Objects :
-
-
-```
-
-[
-	// Marker #1
-	{
-		lat: 46.879966,			// lat of marker
-		lng: -121.726909,		// lng of Marker
-		options: {
-			title: 'here'		// All the marker options you can find at https://leafletjs.com/reference.html#marker
-		},
-		tooltip: 'I am Here',	// The tooltip on the marker
-		popup: 'I am Here'		// a Popup displayed over the marker
-	},
-	// Marker #2
-	...
-]
-
-```
-
-
-
-</td>
-</tr>
-<tr>
-<td>minHeight</td><td>If true the map will automatically be centered on current users GPS position</td>
-</tr>
-<tr>
-<td>polygons</td><td>Add polygons to the maps using an Array of objects :
-
-
-```
-
-[
-	// Polygon #1
-	[
-		[ 46.8, -121.85 ],		// Latlng segment #1
-		[ 46.92, -121.92 ],		// Latlng segment #2
-		[ 46.87, -121.8 ]		// Latlng segment #3
-	],
-	// Polygon #2
-	...
-]
-
+{ lat: 48.8566, lng: 2.3522 }
 ```
 
 
 </td>
 </tr>
 <tr>
-<td>searchLabel</td><td></td>
+<td>circles</td><td>Circle overlays rendered on the map.
+Example value:
+
+
+```
+[{ lat: 48.8566, lng: 2.3522, radius: 1800, tooltip: 'Center', popup: 'Circle example' }]
+```
+
+
+</td>
 </tr>
 <tr>
-<td>zoom</td><td>Zoom factor</td>
+<td>disabled</td><td>Disables map interactions (drag/zoom) when enabled.
+Example value:
+
+
+```
+false
+```
+
+
+</td>
+</tr>
+<tr>
+<td>geoCodeSearchAddress</td><td>Displays a geocoding search bar on top of the map when enabled.
+Example value:
+
+
+```
+true
+```
+
+
+</td>
+</tr>
+<tr>
+<td>layers</td><td>Tile layer definitions rendered as base layers.
+Example value:
+
+
+```
+[{ name: 'OpenStreetMap', source: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', options: { maxZoom: 19, attribution: '© OpenStreetMap contributors' } }]
+```
+
+
+</td>
+</tr>
+<tr>
+<td>markers</td><td>Marker overlays rendered on top of base layers.
+Example value:
+
+
+```
+[{ lat: 48.85837, lng: 2.294481, options: { title: 'Eiffel Tower' }, tooltip: 'Eiffel Tower', popup: 'Paris preset: Eiffel Tower' }]
+```
+
+
+</td>
+</tr>
+<tr>
+<td>minHeight</td><td>Minimum CSS height applied to the map container.
+Example value:
+
+
+```
+'72vh'
+```
+
+ or 
+
+```
+'480px'
+```
+
+
+</td>
+</tr>
+<tr>
+<td>polygons</td><td>Polygon overlays rendered on the map.
+Example value:
+
+
+```
+[{ coord: [[48.8622, 2.3222], [48.8704, 2.3449], [48.8586, 2.3655]], tooltip: 'Area', popup: 'Polygon example' }]
+```
+
+
+</td>
+</tr>
+<tr>
+<td>searchLabel</td><td>Label displayed inside the geosearch input.
+Example value:
+
+
+```
+'Search address'
+```
+
+
+</td>
+</tr>
+<tr>
+<td>zoom</td><td>Initial zoom level.
+Example value:
+
+
+```
+13
+```
+
+
+</td>
 </tr>
 </table>
 
